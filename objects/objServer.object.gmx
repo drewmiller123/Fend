@@ -236,7 +236,11 @@ if(room == rmMultiUpgrade)
 }
 if(room == rmLobby)
 {
-    needReady = true;
+    if(needReady == false)
+    {
+        needReady = true;
+        //scrSendLobbyStats();
+    }
 }
 
 

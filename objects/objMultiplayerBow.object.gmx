@@ -57,7 +57,7 @@ carnageState = false;
           <argument>
             <kind>1</kind>
             <string>///Slow Alarm
-curBowSpeed = bowSpeed;
+curBowSpeed = mBowSpeed[player];
 image_index = ceil(image_index);
 with(frost)
 {
@@ -171,7 +171,7 @@ if(visible)
           <argument>
             <kind>1</kind>
             <string>///Initiate Slow
-curBowSpeed = bowSpeed/2;
+curBowSpeed = mBowSpeed[player]/2;
 image_index = floor(image_index);
 if(!instance_exists(frost))
 {
