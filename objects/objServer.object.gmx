@@ -506,15 +506,25 @@ if(errMsg != "")
 //display player stats in the lobby
 if(room == rmLobby)
 {
+    var spacing = sprite_get_width(sprDamageUpgrade)/3;
     for(d = 0; d &lt;= numClients; d++)
     {
         var multiSprite = scrGetMultiSprite(mMultiShot[d]);
         draw_sprite(sprPlayerArcherDisplay,lobbyCounter*mBowSpeed[d],view_wview[0]/16,view_hview[0]*(d+2)/8)
         scrDrawTextOutline("Player " + string(d+1) ,view_wview[0]/16+sprite_get_width(sprPlayerArcherDisplay),view_hview[0]*(d+2)/8,c_white,c_black);
         draw_sprite_ext(sprDamageUpgrade,0,view_wview[0]/4, view_hview[0]*(d+2)/8 + string_height("Player")/2,.5,.5,0,c_white,1);
-        scrDrawTextOutline(string(mArrowDamage[d]), view_wview[0]/4 + sprite_get_width(sprDamageUpgrade)/3, view_hview[0]*(d+2)/8,c_white,c_black);
-        draw_sprite_ext(multiSprite,0, view_wview[0]/4 + sprite_get_width(sprDamageUpgrade)*2, view_hview[0]*(d+2)/8 + string_height("Player")/2, .5,.5,0,c_white,1);
-        scrDrawTextOutline(string(mMultiShot[d]), view_wview[0]/4 + sprite_get_width(sprDamageUpgrade)*7/3, view_hview[0]*(d+2)/8,c_white,c_black);
+        scrDrawTextOutline(string(mArrowDamage[d]), view_wview[0]/4 + spacing, view_hview[0]*(d+2)/8,c_white,c_black);
+        draw_sprite_ext(multiSprite,0, view_wview[0]/4 + sprite_get_width(sprDamageUpgrade)*5/4, view_hview[0]*(d+2)/8 + string_height("Player")/2, .5,.5,0,c_white,1);
+        scrDrawTextOutline(string(mMultiShot[d]), view_wview[0]/4 + sprite_get_width(sprDamageUpgrade)*5/4 + spacing, view_hview[0]*(d+2)/8,c_white,c_black);
+        
+        draw_sprite_ext(sprFireDisplay,0,view_wview[0]/4 + sprite_get_width(sprDamageUpgrade)*5/4*2, view_hview[0]*(d+2)/8 + string_height("Player")/2, .5,.5,0,c_white,1);
+        scrDrawTextOutline(string_replace_all(string(mFireMult[d]),"0",""), view_wview[0]/4 + sprite_get_width(sprDamageUpgrade)*5/4*2 + spacing, view_hview[0]*(d+2)/8,c_white,c_black);
+        
+        draw_sprite_ext(sprFrostDisplay,0,view_wview[0]/4 + sprite_get_width(sprDamageUpgrade)*5/4*3, view_hview[0]*(d+2)/8 + string_height("Player")/2, .5,.5,0,c_white,1);
+        scrDrawTextOutline(string_replace_all(string(mFrostMult[d]),"0",""), view_wview[0]/4 + sprite_get_width(sprDamageUpgrade)*5/4*3 + spacing, view_hview[0]*(d+2)/8,c_white,c_black);
+        
+        draw_sprite_ext(sprLightningDisplay,0,view_wview[0]/4 + sprite_get_width(sprDamageUpgrade)*5/4*4, view_hview[0]*(d+2)/8 + string_height("Player")/2, .5,.5,0,c_white,1);
+        scrDrawTextOutline(string_replace_all(string(mLightningMult[d]),"0",""), view_wview[0]/4 + sprite_get_width(sprDamageUpgrade)*5/4*4 + spacing, view_hview[0]*(d+2)/8,c_white,c_black);
         
     }
     lobbyCounter++;

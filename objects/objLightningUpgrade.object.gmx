@@ -95,7 +95,7 @@ if(multiplayerMode)
     draw_set_halign(fa_right);
     if(lightningDamageMult == .5)
     {
-        scrDrawTextOutline(string_format(lightningDamageMult,3,1) + "x",x+sprite_width/2-8, y+sprite_height/4,c_white,c_black);
+        scrDrawTextOutline(string_format(lightningDamageMult,10,1) + "x",x+sprite_width/2-8, y+sprite_height/4,c_white,c_black);
     }
     else
     {

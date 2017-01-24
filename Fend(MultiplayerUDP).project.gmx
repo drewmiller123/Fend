@@ -304,6 +304,9 @@
       <sprite>sprites\sprFrostFireLightningSelect</sprite>
       <sprite>sprites\sprFrostFireLightningHighlighted</sprite>
       <sprite>sprites\sprFrostFireLightningSelected</sprite>
+      <sprite>sprites\sprFireDisplay</sprite>
+      <sprite>sprites\sprLightningDisplay</sprite>
+      <sprite>sprites\sprFrostDisplay</sprite>
     </sprites>
     <sprite>sprites\sprArcher</sprite>
     <sprite>sprites\sprBow</sprite>

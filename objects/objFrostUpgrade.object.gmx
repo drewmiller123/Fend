@@ -95,7 +95,7 @@ if(multiplayerMode)
     draw_set_halign(fa_right);
     if(frostDamageMult == .5)
     {
-        scrDrawTextOutline(string_format(frostDamageMult,3,1) + "x",x+sprite_width/2-8, y+sprite_height/4,c_white,c_black);
+        scrDrawTextOutline(string_format(frostDamageMult,10,1) + "x",x+sprite_width/2-8, y+sprite_height/4,c_white,c_black);
     }
     else
     {
