@@ -121,7 +121,11 @@
       <sprite>sprites\sprNoMask</sprite>
       <sprite>sprites\sprTextBox</sprite>
       <sprite>sprites\sprReady</sprite>
+      <sprite>sprites\sprLobbyPlayer</sprite>
       <sprite>sprites\sprBlack</sprite>
+      <sprite>sprites\sprFireDisplay</sprite>
+      <sprite>sprites\sprFrostDisplay</sprite>
+      <sprite>sprites\sprLightningDisplay</sprite>
     </sprites>
     <sprites name="Upgrades">
       <sprites name="BowSpeed">
@@ -304,9 +308,6 @@
       <sprite>sprites\sprFrostFireLightningSelect</sprite>
       <sprite>sprites\sprFrostFireLightningHighlighted</sprite>
       <sprite>sprites\sprFrostFireLightningSelected</sprite>
-      <sprite>sprites\sprFireDisplay</sprite>
-      <sprite>sprites\sprLightningDisplay</sprite>
-      <sprite>sprites\sprFrostDisplay</sprite>
     </sprites>
     <sprite>sprites\sprArcher</sprite>
     <sprite>sprites\sprBow</sprite>
@@ -466,6 +467,7 @@
       <script>scripts\scrClientDrawSprite.gml</script>
       <script>scripts\scrGetMultiSprite.gml</script>
     </scripts>
+    <script>scripts\scrSimplifyNum.gml</script>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shdBurn.shader</shader>
@@ -533,6 +535,7 @@
         <object>objects\objTextBoxIP</object>
         <object>objects\objTextBoxPort</object>
         <object>objects\objJoinButton</object>
+        <object>objects\objLobbyPlayer</object>
       </objects>
       <object>objects\objContinueButton</object>
       <object>objects\objTestButton</object>

@@ -510,28 +510,40 @@ if(errMsg != "")
 //display player stats in the lobby
 if(room == rmLobby)
 {
+    draw_set_valign(fa_middle);
+    var sp = view_hview[0] * 32/135;
+    var vSpacing = view_hview[0] * 4/27;
     var spacing = sprite_get_width(sprDamageUpgrade)/3;
     for(d = 0; d &lt;= numClients; d++)
     {
         var multiSprite = scrGetMultiSprite(mMultiShot[d]);
-        draw_sprite(sprPlayerArcherDisplay,lobbyCounter*mBowSpeed[d],view_wview[0]/16,view_hview[0]*(d+2)/8)
-        scrDrawTextOutline("Player " + string(d+1) ,view_wview[0]/16+sprite_get_width(sprPlayerArcherDisplay),view_hview[0]*(d+2)/8,c_white,c_black);
-        draw_sprite_ext(sprDamageUpgrade,0,view_wview[0]/4, view_hview[0]*(d+2)/8 + string_height("Player")/2,.5,.5,0,c_white,1);
-        scrDrawTextOutline(string(mArrowDamage[d]), view_wview[0]/4 + spacing, view_hview[0]*(d+2)/8,c_white,c_black);
-        draw_sprite_ext(multiSprite,0, view_wview[0]/4 + sprite_get_width(sprDamageUpgrade)*5/4, view_hview[0]*(d+2)/8 + string_height("Player")/2, .5,.5,0,c_white,1);
-        scrDrawTextOutline(string(mMultiShot[d]), view_wview[0]/4 + sprite_get_width(sprDamageUpgrade)*5/4 + spacing, view_hview[0]*(d+2)/8,c_white,c_black);
         
-        draw_sprite_ext(sprFireDisplay,0,view_wview[0]/4 + sprite_get_width(sprDamageUpgrade)*5/4*2, view_hview[0]*(d+2)/8 + string_height("Player")/2, .5,.5,0,c_white,1);
-        scrDrawTextOutline(string_replace_all(string(mFireMult[d]),"0",""), view_wview[0]/4 + sprite_get_width(sprDamageUpgrade)*5/4*2 + spacing, view_hview[0]*(d+2)/8,c_white,c_black);
+        draw_sprite(sprLobbyPlayer, (d == 0), view_wview[0]/32, sp + d*vSpacing);
         
-        draw_sprite_ext(sprFrostDisplay,0,view_wview[0]/4 + sprite_get_width(sprDamageUpgrade)*5/4*3, view_hview[0]*(d+2)/8 + string_height("Player")/2, .5,.5,0,c_white,1);
-        scrDrawTextOutline(string_replace_all(string(mFrostMult[d]),"0",""), view_wview[0]/4 + sprite_get_width(sprDamageUpgrade)*5/4*3 + spacing, view_hview[0]*(d+2)/8,c_white,c_black);
+        draw_sprite(sprPlayerArcherDisplay,lobbyCounter*mBowSpeed[d],view_wview[0]/16, sp + d*vSpacing)
+        scrDrawTextOutline("Player " + string(d+1) ,view_wview[0]/16+sprite_get_width(sprPlayerArcherDisplay), sp + d*vSpacing - string_height("Player"),c_white,c_black);
         
-        draw_sprite_ext(sprLightningDisplay,0,view_wview[0]/4 + sprite_get_width(sprDamageUpgrade)*5/4*4, view_hview[0]*(d+2)/8 + string_height("Player")/2, .5,.5,0,c_white,1);
-        scrDrawTextOutline(string_replace_all(string(mLightningMult[d]),"0",""), view_wview[0]/4 + sprite_get_width(sprDamageUpgrade)*5/4*4 + spacing, view_hview[0]*(d+2)/8,c_white,c_black);
+        //gold
+        draw_sprite(sprBigCoin, lobbyCounter/2, view_wview[0]/16+sprite_get_width(sprPlayerArcherDisplay), sp + d*vSpacing + string_height("Player"));
+        scrDrawTextOutline(scrSimplifyNum(mGold[d]), view_wview[0]/16+sprite_get_width(sprPlayerArcherDisplay) + sprite_get_width(sprBigCoin), sp + d*vSpacing + string_height("Player"),c_yellow,c_black);
+        
+        draw_sprite_ext(sprDamageUpgrade,0,view_wview[0]/4, sp + d*vSpacing,.5,.5,0,c_white,1);
+        scrDrawTextOutline(string(mArrowDamage[d]), view_wview[0]/4 + spacing,sp + d*vSpacing,c_white,c_black);
+        draw_sprite_ext(multiSprite,0, view_wview[0]/4 + sprite_get_width(sprDamageUpgrade)*5/4, sp + d*vSpacing, .5,.5,0,c_white,1);
+        scrDrawTextOutline(string(mMultiShot[d]), view_wview[0]/4 + sprite_get_width(sprDamageUpgrade)*5/4 + spacing, sp + d*vSpacing,c_white,c_black);
+        
+        draw_sprite_ext(sprFireDisplay,0,view_wview[0]/4 + sprite_get_width(sprDamageUpgrade)*5/4*2, sp + d*vSpacing, .5,.5,0,c_white,1);
+        scrDrawTextOutline(string_replace_all(string(mFireMult[d]),"0",""), view_wview[0]/4 + sprite_get_width(sprDamageUpgrade)*5/4*2 + spacing, sp + d*vSpacing,c_white,c_black);
+        
+        draw_sprite_ext(sprFrostDisplay,0,view_wview[0]/4 + sprite_get_width(sprDamageUpgrade)*5/4*3, sp + d*vSpacing, .5,.5,0,c_white,1);
+        scrDrawTextOutline(string_replace_all(string(mFrostMult[d]),"0",""), view_wview[0]/4 + sprite_get_width(sprDamageUpgrade)*5/4*3 + spacing, sp + d*vSpacing,c_white,c_black);
+        
+        draw_sprite_ext(sprLightningDisplay,0,view_wview[0]/4 + sprite_get_width(sprDamageUpgrade)*5/4*4, sp + d*vSpacing, .5,.5,0,c_white,1);
+        scrDrawTextOutline(string_replace_all(string(mLightningMult[d]),"0",""), view_wview[0]/4 + sprite_get_width(sprDamageUpgrade)*5/4*4 + spacing, sp + d*vSpacing,c_white,c_black);
         
     }
     lobbyCounter++;
+    draw_set_valign(fa_top);
 }
 </string>
           </argument>
