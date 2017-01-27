@@ -87,6 +87,7 @@ switch(msgid)
         buffer_write(buffer,buffer_u8,netReadyAck);
         buffer_write(buffer,buffer_bool,mReady[player]);
         network_send_udp(socket, ip, port, buffer, buffer_tell(buffer));
+        scrSendLobbyStats();
     break;
     /*case netStateUpdate:
         var player = ds_list_find_index(ipList,ip)+1;

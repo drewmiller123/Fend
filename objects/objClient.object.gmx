@@ -510,7 +510,7 @@ if(currentState == mBattleFieldState)
     scrDrawTextOutline("Wave: " + string(currentWave) + "/" + string(numWaves),view_wview[0] - 32,32,c_white,c_black);
     draw_set_halign(fa_left);
 }
-else if(currentState == mLobbyState)
+else
 {
     draw_set_font(fntDamageUpgrade);
     draw_set_halign(fa_left);
@@ -527,6 +527,26 @@ else if(currentState == mLobbyState)
     coin.x = view_wview[0]/2 + sprite_get_width(sprInfoTextBox)/2 - 20 - coin.sprite_width/2 - string_width(string(gold));
     coin.y = 46;
     coin.visible = true;
+}
+
+
+if(currentState == mLobbyState)
+{
+    draw_set_font(fntArrowUpgrade);
+    draw_set_halign(fa_left);
+    /*//Day
+    scrDrawTextOutline("Day:" + string(day),view_xview[0]+32,32,c_white,c_black);
+    //Gold
+    //scrDrawTextOutline("Gold: ",view_wview[0]/2 - sprite_get_width(sprInfoTextBox)/2 + 10,32,c_yellow,c_black);
+    draw_set_halign(fa_right);
+    scrDrawTextOutline(string(gold),view_wview[0]/2 + sprite_get_width(sprInfoTextBox)/2 - 10,32,c_yellow,c_black);
+    if(!instance_exists(coin))
+    {
+        coin = instance_create(x,y,objDisplayCoin);
+    }
+    coin.x = view_wview[0]/2 + sprite_get_width(sprInfoTextBox)/2 - 20 - coin.sprite_width/2 - string_width(string(gold));
+    coin.y = 46;
+    coin.visible = true;*/
     
     //display lobby stuff
     draw_set_halign(fa_left);
@@ -560,6 +580,8 @@ else if(currentState == mLobbyState)
         
         draw_sprite_ext(sprLightningDisplay,0,view_wview[0]/4 + sprite_get_width(sprDamageUpgrade)*5/4*4, sp + d*vSpacing, .5,.5,0,c_white,1);
         scrDrawTextOutline(string_replace_all(string(mLightningMult[d]),"0",""), view_wview[0]/4 + sprite_get_width(sprDamageUpgrade)*5/4*4 + spacing, sp + d*vSpacing,c_white,c_black);
+        
+        draw_sprite(sprReady, mReady[d], view_wview[0] * 43/60, sp + d*vSpacing);
         
     }
     lobbyCounter++;

@@ -8,7 +8,7 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="3" enumb="0">
+    <event eventtype="0" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -25,26 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/*if(!hosting &amp;&amp; !instance_exists(objClient))
-{
-    visible = false;
-}
-else
-{
-    visible = true;
-}*/
-
-if(!hosting)
-{
-    if(objClient.needReady)
-    {
-        visible = true;
-    }
-    else
-    {
-        visible = false;
-    }
-}
+            <string>objServer.showIP = false;
 </string>
           </argument>
         </arguments>
@@ -67,33 +48,7 @@ if(!hosting)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(visible)
-{
-    //mReady[player] = true;
-    if(hosting)
-    {
-        //room_goto(rmMultiBattleField);
-        //room_goto(rmLobby);
-        mReady[0] = !mReady[0];
-        scrSendLobbyStats();
-    }
-    else
-    {
-        //ready = !ready;
-        //room_goto(rmClientBattleField);
-        //var send = !ready;
-        with(objClient)
-        {
-            if(needReady)
-            {
-                buffer_seek(buffer, buffer_seek_start,0);
-                buffer_write(buffer, buffer_u8,netReadyUpdate);
-                buffer_write(buffer, buffer_bool, !ready);
-                result = network_send_udp(socket, IPAddress, remotePort, buffer, buffer_tell(buffer));
-            }
-        }
-    }
-}
+            <string>objServer.showIP = !objServer.showIP;
 </string>
           </argument>
         </arguments>
@@ -118,34 +73,11 @@ if(!hosting)
             <kind>1</kind>
             <string>draw_set_font(fntUpgrade);
 draw_set_halign(fa_center);
+draw_set_valign(fa_middle);
 
-if(hosting)
-{
-    if(mReady[0])
-    {
-        scrDrawTextOutline("Unready",x,y-sprite_width/32,c_white,c_black)
-    }
-    else
-    {
-        scrDrawTextOutline("Ready",x,y-sprite_width/32,c_white,c_black)
-    }
-}
-else
-{
-    if(objClient.ready)
-    {
-        scrDrawTextOutline("Unready",x,y-sprite_width/32,c_white,c_black)
-    }
-    else
-    {
-        scrDrawTextOutline("Ready",x,y-sprite_width/32,c_white,c_black)
-    }
-    
-    /*if(room == rmClientBattleField &amp;&amp; visible)
-    {
-        scrDrawTextOutline("Waiting For Host...", view_wview[0]/2, view_hview[0]/2,c_white,c_black);
-    }*/
-}
+scrDrawTextOutline("What is#my IP?",x,y,c_white,c_black)
+
+draw_set_valign(fa_top);
 
 </string>
           </argument>

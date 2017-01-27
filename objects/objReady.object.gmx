@@ -50,7 +50,7 @@ image_speed = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(player &lt;= objServer.numClients)
+            <string>/*if(player &lt;= objServer.numClients)
 {
     visible = true;
 }
@@ -62,7 +62,7 @@ if(mReady[player] == true)
 else
 {
     image_index = 0;
-}
+}*/
 </string>
           </argument>
         </arguments>

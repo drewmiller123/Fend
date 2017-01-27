@@ -36,6 +36,10 @@ if(count > 0)
     buffer_write(objServer.buffer, buffer_u16, mBowSpeed[1]*1000);
     buffer_write(objServer.buffer, buffer_u16, mBowSpeed[2]*1000);
     buffer_write(objServer.buffer, buffer_u16, mBowSpeed[3]*1000);
+    buffer_write(objServer.buffer, buffer_bool, mReady[0]);
+    buffer_write(objServer.buffer, buffer_bool, mReady[1]);
+    buffer_write(objServer.buffer, buffer_bool, mReady[2]);
+    buffer_write(objServer.buffer, buffer_bool, mReady[3]);
     
     
     for(i=0;i<count;i++)

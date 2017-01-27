@@ -199,6 +199,10 @@ switch(msgid)
         mBowSpeed[0] = buffer_read(buff,buffer_u16)/1000;
         mBowSpeed[1] = buffer_read(buff,buffer_u16)/1000;
         mBowSpeed[2] = buffer_read(buff,buffer_u16)/1000;
-        mBowSpeed[3] = buffer_read(buff,buffer_u16)/1000;  
+        mBowSpeed[3] = buffer_read(buff,buffer_u16)/1000;
+        mReady[0] = buffer_read(buff,buffer_bool);  
+        mReady[1] = buffer_read(buff,buffer_bool);
+        mReady[2] = buffer_read(buff,buffer_bool);
+        mReady[3] = buffer_read(buff,buffer_bool);
     break;
 }

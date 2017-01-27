@@ -64,6 +64,7 @@ mStateAck[3] = false;
 ///Send request to IP service
 async_event = http_get( "http://ipv4bot.whatismyipaddress.com/" );
 myIP = "";
+showIP = false;
 
 lobbyCounter = 0;
 
@@ -528,9 +529,9 @@ draw_text(5, 55, "MultiplayerGold: " + string(multiplayerGold));
 draw_text(5, 80, "needReady: " + string(needReady));
 //draw_text(5, 105, "MultiplayerGold: " + string(multiplayerGold));
 
-if(room == rmLobby)
+if(room == rmLobby &amp;&amp; showIP)
 {
-    scrDrawTextOutline("Your IP Address is :" + myIP,view_wview[0]/2,view_hview[0]/2,c_white,c_black);
+    scrDrawTextOutline("IP Address:" + myIP,objIPButton.x-objIPButton.sprite_width/2,objIPButton.y-objIPButton.sprite_height*3/4,c_white,c_black);
 }
 //draw_text(5, 80, "clientY: " + string(displayy));
 //draw_text(5, 105, "clientClicked: " + string(displayClicked));
@@ -575,6 +576,8 @@ if(room == rmLobby)
         
         draw_sprite_ext(sprLightningDisplay,0,view_wview[0]/4 + sprite_get_width(sprDamageUpgrade)*5/4*4, sp + d*vSpacing, .5,.5,0,c_white,1);
         scrDrawTextOutline(string_replace_all(string(mLightningMult[d]),"0",""), view_wview[0]/4 + sprite_get_width(sprDamageUpgrade)*5/4*4 + spacing, sp + d*vSpacing,c_white,c_black);
+        
+        draw_sprite(sprReady, mReady[d], view_wview[0] * 43/60, sp + d*vSpacing);
         
     }
     lobbyCounter++;

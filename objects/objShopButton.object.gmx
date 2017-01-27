@@ -25,24 +25,39 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(hosting)
+            <string>if(multiplayerMode)
 {
-    if(room == rmLobby)
+    if(hosting)
     {
-        var allReady = true;
-        for(i = 0; i &lt;= objServer.numClients; i++)
+        if(room == rmLobby)
         {
-            if(!mReady[i])
+            /*var allReady = true;
+            for(i = 0; i &lt;= objServer.numClients; i++)
             {
-                allReady = false;
+                if(!mReady[i])
+                {
+                    allReady = false;
+                }
             }
+            
+            if(objServer.numClients == 0)
+            {
+                visible = false;
+            }
+            else if(allReady)
+            {
+                visible = true;
+            }
+            else
+            {
+                visible = false;
+            }*/
+            visible = true;
         }
-        
-        if(objServer.numClients == 0)
-        {
-            visible = false;
-        }
-        else if(allReady)
+    }
+    else
+    {
+        if(objClient.needReady)
         {
             visible = true;
         }
@@ -52,6 +67,7 @@
         }
     }
 }
+
 </string>
           </argument>
         </arguments>
@@ -74,9 +90,29 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(hosting)
+            <string>if(multiplayerMode)
 {
-room_goto(rmMultiUpgrade);
+    if(hosting)
+    {
+        mReady[0] = false;
+        scrSendLobbyStats();
+        room_goto(rmMultiUpgrade);
+    }
+    else
+    {
+        with(objClient)
+        {
+            if(needReady)
+            {
+                buffer_seek(buffer, buffer_seek_start,0);
+                buffer_write(buffer, buffer_u8,netReadyUpdate);
+                buffer_write(buffer, buffer_bool, false);//!ready);
+                result = network_send_udp(socket, IPAddress, remotePort, buffer, buffer_tell(buffer));
+            }
+            currentState = mUpgradeState;
+        }
+        room_goto(rmMultiUpgrade);
+    }
 }
 else
 {
