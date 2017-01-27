@@ -104,6 +104,7 @@ switch(msgid)
         buffer_seek(buffer,buffer_seek_start,0);
         buffer_write(buffer,buffer_u8,netStatAck);
         network_send_udp(socket, ip, port, buffer, buffer_tell(buffer));
+        scrSendLobbyStats();
     break;
     case netInitialRequest:
         var player = ds_list_find_index(ipList,ip)+1;
@@ -120,5 +121,6 @@ switch(msgid)
         buffer_write(buffer,buffer_u16,mFrostMult[player]*100);
         buffer_write(buffer,buffer_u16,mLightningMult[player]*100);
         network_send_udp(socket, ip, port, buffer, buffer_tell(buffer));
+        scrSendLobbyStats();
     break;
 }

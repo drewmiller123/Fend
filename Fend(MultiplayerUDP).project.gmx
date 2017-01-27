@@ -765,7 +765,7 @@
       <room>rooms\rmMultiUpgrade</room>
     </rooms>
   </rooms>
-  <constants number="22">
+  <constants number="23">
     <constant name="netPing">1</constant>
     <constant name="netKeyboard">2</constant>
     <constant name="netMouse">3</constant>
@@ -788,6 +788,7 @@
     <constant name="mCarnageState">150</constant>
     <constant name="mUpgradeState">151</constant>
     <constant name="mBattleFieldState">152</constant>
+    <constant name="mLobbyState">153</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

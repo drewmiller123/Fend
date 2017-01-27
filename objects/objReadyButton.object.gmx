@@ -140,10 +140,10 @@ else
         scrDrawTextOutline("Ready",x,y-sprite_width/32,c_white,c_black)
     }
     
-    if(room == rmClientBattleField &amp;&amp; visible)
+    /*if(room == rmClientBattleField &amp;&amp; visible)
     {
         scrDrawTextOutline("Waiting For Host...", view_wview[0]/2, view_hview[0]/2,c_white,c_black);
-    }
+    }*/
 }
 
 </string>

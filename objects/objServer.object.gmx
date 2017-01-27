@@ -97,6 +97,35 @@ ds_list_destroy(socketList);
         </arguments>
       </action>
     </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Send lobby stats every half second while in the lobby
+
+if(room == rmLobby)
+{
+    scrSendLobbyStats();
+    alarm[1] = 30;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="2" enumb="0">
       <action>
         <libid>1</libid>
@@ -234,12 +263,18 @@ if(room == rmMultiUpgrade)
     sendState = mUpgradeState;
     needReady = true;
 }
+else
+{
+    needReady = false;
+}
 if(room == rmLobby)
 {
+    sendState = mLobbyState;
     if(needReady == false)
     {
         needReady = true;
         //scrSendLobbyStats();
+        alarm[1] = 30;
     }
 }
 
@@ -490,7 +525,7 @@ ds_list_destroy(socketList);
 draw_text(5, 5, "Server Status: "+ string(server &gt;= 0));
 draw_text(5, 30, "Total Clients: " + string(ds_list_size(socketList)));
 draw_text(5, 55, "MultiplayerGold: " + string(multiplayerGold));
-//draw_text(5, 80, "mMultiShot[1]: " + string(mMultiShot[1]));
+draw_text(5, 80, "needReady: " + string(needReady));
 //draw_text(5, 105, "MultiplayerGold: " + string(multiplayerGold));
 
 if(room == rmLobby)

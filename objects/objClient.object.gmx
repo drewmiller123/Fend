@@ -87,6 +87,7 @@ alarm[2] = 1;//send first ping
 result = 0;//
 
 numPlayers = 0;
+lobbyCounter = 0;
 
 paused = false;
 
@@ -370,6 +371,22 @@ if(!instance_exists(objClientPause))
     paused = false;
 }
 
+
+/*if(needReady &amp;&amp; room == rmClientBattleField)
+{
+    currentState = mLobbyState;
+}*/
+/*if(room == rmMultiUpgrade)
+{
+    currentState = mUpgradeState;
+}*/
+
+//set to lobby state if not in battlefield state
+/*if(room == rmClientBattleField &amp;&amp; currentState == mUpgradeState)
+{
+    currentState = mLobbyState;
+}*/
+
 //Check for Server Timeout
 serverTimeout--;
 if(serverTimeout &lt;= 0)
@@ -462,10 +479,13 @@ draw_set_halign(fa_right);
 draw_set_font(fntPing);
 scrDrawTextOutline("Ping: " + string(ping), view_wview[0] -32, 8,c_white,c_black);  
 
-//draw_text(5, 55, "State: " + string(subState));//
-//draw_text(5, 80, "mouse_y: " + string(displayy));//
+
 draw_set_font(fntDamageUpgrade);
 draw_set_halign(fa_left);
+
+draw_text(5, 55, "State: " + string(currentState));//
+draw_text(5, 80, "SubState: " + string(subState));//
+draw_text(5, 105, "numPlayers: " + string(numPlayers));//
 
 if(currentState == mBattleFieldState)
 {
@@ -490,7 +510,7 @@ if(currentState == mBattleFieldState)
     scrDrawTextOutline("Wave: " + string(currentWave) + "/" + string(numWaves),view_wview[0] - 32,32,c_white,c_black);
     draw_set_halign(fa_left);
 }
-else
+else if(currentState == mLobbyState)
 {
     draw_set_font(fntDamageUpgrade);
     draw_set_halign(fa_left);
@@ -507,6 +527,43 @@ else
     coin.x = view_wview[0]/2 + sprite_get_width(sprInfoTextBox)/2 - 20 - coin.sprite_width/2 - string_width(string(gold));
     coin.y = 46;
     coin.visible = true;
+    
+    //display lobby stuff
+    draw_set_halign(fa_left);
+    draw_set_valign(fa_middle);
+    var sp = view_hview[0] * 32/135;
+    var vSpacing = view_hview[0] * 4/27;
+    var spacing = sprite_get_width(sprDamageUpgrade)/3;
+    for(d = 0; d &lt; numPlayers; d++)
+    {
+        var multiSprite = scrGetMultiSprite(mMultiShot[d]);
+        
+        draw_sprite(sprLobbyPlayer, (d == player), view_wview[0]/32, sp + d*vSpacing);
+        
+        draw_sprite(sprPlayerArcherDisplay,lobbyCounter*mBowSpeed[d],view_wview[0]/16, sp + d*vSpacing)
+        scrDrawTextOutline("Player " + string(d+1) ,view_wview[0]/16+sprite_get_width(sprPlayerArcherDisplay), sp + d*vSpacing - string_height("Player"),c_white,c_black);
+        
+        //gold
+        draw_sprite(sprBigCoin, lobbyCounter/2, view_wview[0]/16+sprite_get_width(sprPlayerArcherDisplay), sp + d*vSpacing + string_height("Player"));
+        scrDrawTextOutline(scrSimplifyNum(mGold[d]), view_wview[0]/16+sprite_get_width(sprPlayerArcherDisplay) + sprite_get_width(sprBigCoin), sp + d*vSpacing + string_height("Player"),c_yellow,c_black);
+        
+        draw_sprite_ext(sprDamageUpgrade,0,view_wview[0]/4, sp + d*vSpacing,.5,.5,0,c_white,1);
+        scrDrawTextOutline(string(mArrowDamage[d]), view_wview[0]/4 + spacing,sp + d*vSpacing,c_white,c_black);
+        draw_sprite_ext(multiSprite,0, view_wview[0]/4 + sprite_get_width(sprDamageUpgrade)*5/4, sp + d*vSpacing, .5,.5,0,c_white,1);
+        scrDrawTextOutline(string(mMultiShot[d]), view_wview[0]/4 + sprite_get_width(sprDamageUpgrade)*5/4 + spacing, sp + d*vSpacing,c_white,c_black);
+        
+        draw_sprite_ext(sprFireDisplay,0,view_wview[0]/4 + sprite_get_width(sprDamageUpgrade)*5/4*2, sp + d*vSpacing, .5,.5,0,c_white,1);
+        scrDrawTextOutline(string_replace_all(string(mFireMult[d]),"0",""), view_wview[0]/4 + sprite_get_width(sprDamageUpgrade)*5/4*2 + spacing, sp + d*vSpacing,c_white,c_black);
+        
+        draw_sprite_ext(sprFrostDisplay,0,view_wview[0]/4 + sprite_get_width(sprDamageUpgrade)*5/4*3, sp + d*vSpacing, .5,.5,0,c_white,1);
+        scrDrawTextOutline(string_replace_all(string(mFrostMult[d]),"0",""), view_wview[0]/4 + sprite_get_width(sprDamageUpgrade)*5/4*3 + spacing, sp + d*vSpacing,c_white,c_black);
+        
+        draw_sprite_ext(sprLightningDisplay,0,view_wview[0]/4 + sprite_get_width(sprDamageUpgrade)*5/4*4, sp + d*vSpacing, .5,.5,0,c_white,1);
+        scrDrawTextOutline(string_replace_all(string(mLightningMult[d]),"0",""), view_wview[0]/4 + sprite_get_width(sprDamageUpgrade)*5/4*4 + spacing, sp + d*vSpacing,c_white,c_black);
+        
+    }
+    lobbyCounter++;
+    draw_set_valign(fa_top);
 }
 
 if(currentState == mCarnageState)

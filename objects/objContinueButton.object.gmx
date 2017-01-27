@@ -30,6 +30,7 @@
     if(hosting)
     {
         mReady[0] = true;
+        scrSendLobbyStats();
         room_goto(rmLobby);
     }
     else
@@ -55,6 +56,7 @@
             buffer_write(buffer, buffer_bool, true);
             result = network_send_udp(socket, IPAddress, remotePort, buffer, buffer_tell(buffer));
         }
+        objClient.currentState = mLobbyState;
         room_goto(rmClientBattleField);
     }
 }

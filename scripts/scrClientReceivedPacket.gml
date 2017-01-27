@@ -93,7 +93,33 @@ switch(msgid)
         scrPlayMusic(snd);
     break;
     case netStateUpdate:
-        currentState = buffer_read(buff, buffer_u8);
+        var st = buffer_read(buff, buffer_u8);
+        if(st == mUpgradeState)
+        {
+            if(currentState == mLobbyState)
+            {
+                //do nothing
+            }
+            else
+            {
+                currentState = st;
+            }
+        }
+        else if(st = mLobbyState)
+        {
+            if(currentState == mUpgradeState)
+            {
+                //do nothing
+            }
+            else
+            {
+                currentState = st;
+            }
+        }
+        else
+        {
+            currentState = st;
+        }
         //subState = 0;
     break;
     case netWaveUpdate:
@@ -143,5 +169,36 @@ switch(msgid)
     case netError:
         errMsg = buffer_read(buff, buffer_string);
         alarm[11] = 180;
+    break;
+    case netLobbyStats:
+        numPlayers = buffer_read(buff,buffer_u8)+1;
+        mGold[0] = buffer_read(buff,buffer_u32);
+        mGold[1] = buffer_read(buff,buffer_u32);
+        mGold[2] = buffer_read(buff,buffer_u32);
+        mGold[3] = buffer_read(buff,buffer_u32);
+        mArrowDamage[0] = buffer_read(buff,buffer_u16);
+        mArrowDamage[1] = buffer_read(buff,buffer_u16);
+        mArrowDamage[2] = buffer_read(buff,buffer_u16);
+        mArrowDamage[3] = buffer_read(buff,buffer_u16);
+        mMultiShot[0] = buffer_read(buff,buffer_u8);
+        mMultiShot[1] = buffer_read(buff,buffer_u8);
+        mMultiShot[2] = buffer_read(buff,buffer_u8);
+        mMultiShot[3] = buffer_read(buff,buffer_u8);
+        mFireMult[0] = buffer_read(buff,buffer_u16)/100;
+        mFireMult[1] = buffer_read(buff,buffer_u16)/100;
+        mFireMult[2] = buffer_read(buff,buffer_u16)/100;
+        mFireMult[3] = buffer_read(buff,buffer_u16)/100;
+        mFrostMult[0] = buffer_read(buff,buffer_u16)/100;
+        mFrostMult[1] = buffer_read(buff,buffer_u16)/100;
+        mFrostMult[2] = buffer_read(buff,buffer_u16)/100;
+        mFrostMult[3] = buffer_read(buff,buffer_u16)/100;
+        mLightningMult[0] = buffer_read(buff,buffer_u16)/100;
+        mLightningMult[1] = buffer_read(buff,buffer_u16)/100;
+        mLightningMult[2] = buffer_read(buff,buffer_u16)/100;
+        mLightningMult[3] = buffer_read(buff,buffer_u16)/100;
+        mBowSpeed[0] = buffer_read(buff,buffer_u16)/1000;
+        mBowSpeed[1] = buffer_read(buff,buffer_u16)/1000;
+        mBowSpeed[2] = buffer_read(buff,buffer_u16)/1000;
+        mBowSpeed[3] = buffer_read(buff,buffer_u16)/1000;  
     break;
 }
