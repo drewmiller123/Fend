@@ -33,7 +33,7 @@ if(objTextBoxPort.port == "")
 }
 else
 {
-    hostPort = objTextBoxPort.port;
+    hostPort = real(objTextBoxPort.port);
 }
 server = network_create_server(network_socket_udp,hostPort,3);
 buffer = buffer_create(1024,buffer_fixed,1);
@@ -170,56 +170,59 @@ room_goto(rmMainMenu);
             <kind>1</kind>
             <string>/// Send player data to ALL attached clients
 
-// Once a frame, we send ALL attached clients, ALL game sprites (plaeyrs and baddies)
-var count = ds_list_size(socketList);
 
-if(count &gt; 0)
+if(!instance_exists(objPause))
 {
-    /// Send all sprites to all clients
+    // Once a frame, we send ALL attached clients, ALL game sprites (plaeyrs and baddies)
+    var count = ds_list_size(socketList);
     
-    // Reset buffer to start - Networking ALWAYS reads from the START of the buffer
-    buffer_seek(drawBuffer, buffer_seek_start, 0);
-
-    buffer_write(drawBuffer, buffer_u8, netDraw);
+    if(count &gt; 0)
+    {
+        /// Send all sprites to all clients
+        
+        // Reset buffer to start - Networking ALWAYS reads from the START of the buffer
+        buffer_seek(drawBuffer, buffer_seek_start, 0);
     
-    // Total number of sprites
-    buffer_write(drawBuffer, buffer_u16, 0);//gets populated later with buffCount
-
-
-    //add all sprites to buffer  
-    scrDrawToBuffer();
-   
-    buffer_poke(drawBuffer, 1, buffer_u16, buffCount);
-
-    for(i=0;i&lt;count;i++)
-    {   
-        //if(gameSteps mod 2 == i mod 2 || count == 1)
-        //{
-            // get the socket
-            var sock = ds_list_find_value(socketList,i);
-            var ip = ds_list_find_value(ipList,i);
-            var port = ds_list_find_value(portList,i);
+        buffer_write(drawBuffer, buffer_u8, netDraw);
+        
+        // Total number of sprites
+        buffer_write(drawBuffer, buffer_u16, 0);//gets populated later with buffCount
     
-            // Send all sprites to client
-            network_send_udp(sock, ip, port, drawBuffer, buffer_tell(drawBuffer));  
-            
-            
-            ////Generate and send player specific sprites separately for proper alpha adjustment////////
-            buffer_seek(playerBuffer, buffer_seek_start, 0);
-            buffer_write(playerBuffer, buffer_u8, netPlayerDraw);           
-            // Total number of sprites
-            buffer_write(playerBuffer, buffer_u16, 0);//gets populated later with playerBuffCount     
-            scrDrawPlayerBuffer();
-            buffer_poke(playerBuffer, 1, buffer_u16, playerBuffCount);
-
-            network_send_udp(sock, ip, port, playerBuffer, buffer_tell(playerBuffer));
-            playerBuffCount = 0;
-        //}    
+    
+        //add all sprites to buffer  
+        scrDrawToBuffer();
+       
+        buffer_poke(drawBuffer, 1, buffer_u16, buffCount);
+    
+        for(i=0;i&lt;count;i++)
+        {   
+            //if(gameSteps mod 2 == i mod 2 || count == 1)
+            //{
+                // get the socket
+                var sock = ds_list_find_value(socketList,i);
+                var ip = ds_list_find_value(ipList,i);
+                var port = ds_list_find_value(portList,i);
+        
+                // Send all sprites to client
+                network_send_udp(sock, ip, port, drawBuffer, buffer_tell(drawBuffer));  
+                
+                
+                ////Generate and send player specific sprites separately for proper alpha adjustment////////
+                buffer_seek(playerBuffer, buffer_seek_start, 0);
+                buffer_write(playerBuffer, buffer_u8, netPlayerDraw);           
+                // Total number of sprites
+                buffer_write(playerBuffer, buffer_u16, 0);//gets populated later with playerBuffCount     
+                scrDrawPlayerBuffer();
+                buffer_poke(playerBuffer, 1, buffer_u16, playerBuffCount);
+    
+                network_send_udp(sock, ip, port, playerBuffer, buffer_tell(playerBuffer));
+                playerBuffCount = 0;
+            //}    
+        }
+        buffCount = 0;
     }
-    buffCount = 0;
+
 }
-
-
 </string>
           </argument>
         </arguments>
@@ -546,6 +549,10 @@ if(errMsg != "")
 //display player stats in the lobby
 if(room == rmLobby)
 {
+
+    
+
+    draw_set_font(fntArrowUpgrade);
     draw_set_valign(fa_middle);
     var sp = view_hview[0] * 32/135;
     var vSpacing = view_hview[0] * 4/27;

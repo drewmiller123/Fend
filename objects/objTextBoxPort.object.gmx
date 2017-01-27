@@ -113,7 +113,7 @@ draw_set_color(c_black);
 
 lm = x-sprite_width/2 + 5;
 
-if(port == "")
+if(port == "" &amp;&amp; !selected)
 {
     if(hosting)
     {

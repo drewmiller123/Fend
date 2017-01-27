@@ -39,7 +39,7 @@ if(objTextBoxPort.port == "")
 }
 else
 {
-    remotePort = objTextBoxPort.port;
+    remotePort = real(objTextBoxPort.port);
 }
 
 socket = network_create_socket(network_socket_udp);
@@ -485,7 +485,8 @@ draw_set_halign(fa_left);
 
 draw_text(5, 55, "State: " + string(currentState));//
 draw_text(5, 80, "SubState: " + string(subState));//
-draw_text(5, 105, "numPlayers: " + string(numPlayers));//
+draw_text(5, 105, "RemoteIP " + IPAddress);//
+draw_text(5, 130, "RemotePort " + string(remotePort));//
 
 if(currentState == mBattleFieldState)
 {

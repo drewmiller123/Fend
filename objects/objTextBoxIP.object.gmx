@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>selected = true;
+            <string>selected = false;
 ip = "";
 </string>
           </argument>
@@ -113,7 +113,7 @@ draw_set_color(c_black);
 
 lm = x-sprite_width/2 + 5;
 
-if(ip == "")
+if(ip == "" &amp;&amp; !selected)
 {
     draw_text(lm, y, "Enter Host's IP Address");
 }

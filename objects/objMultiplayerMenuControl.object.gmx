@@ -48,6 +48,7 @@ if(room == rmLobby)
     if(hosting)
     {
         lobbyCounter = 0;
+        coin = instance_create(x,y,objDisplayCoin);
         //objServer.mReady[0] = false;
         //objServer.mReady[1] = false;
         //objServer.mReady[2] = false;
@@ -140,6 +141,24 @@ if(endlessSelectState)
 {
     scrDrawTextOutline("##Which Mode would you like to play?",x,y,c_white,c_black)
 }*/
+
+if(room == rmLobby)
+{
+    draw_set_font(fntDamageUpgrade);
+    draw_set_halign(fa_left);
+    //Day
+    scrDrawTextOutline("Day:" + string(day),view_xview[0]+32,32,c_white,c_black);
+    //Gold
+    //scrDrawTextOutline("Gold: ",view_wview[0]/2 - sprite_get_width(sprInfoTextBox)/2 + 10,32,c_yellow,c_black);
+    draw_set_halign(fa_right);
+    scrDrawTextOutline(string(gold),view_wview[0]/2 + sprite_get_width(sprInfoTextBox)/2 - 10,32,c_yellow,c_black);
+    if(instance_exists(coin))
+    {
+        coin.x = view_wview[0]/2 + sprite_get_width(sprInfoTextBox)/2 - 20 - coin.sprite_width/2 - string_width(string(gold));
+        coin.y = 46;
+        coin.visible = true;
+    }
+}
 </string>
           </argument>
         </arguments>
