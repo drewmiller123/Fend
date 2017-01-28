@@ -29,9 +29,18 @@
 {
     if(hosting)
     {
+        
         mReady[0] = true;
+        mGold[0] = gold;
         scrSendLobbyStats();
-        room_goto(rmLobby);
+        if(room == rmLose)
+        {
+            room_goto(rmMultiUpgrade);
+        }
+        else
+        {
+            room_goto(rmLobby);
+        }
     }
     else
     {

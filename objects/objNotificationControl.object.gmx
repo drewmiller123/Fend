@@ -48,7 +48,7 @@ if(hosting)
         {
             mNewGold[i] = round(multiplayerGold/(numClients+1));
         }
-        gold += mNewGold[0];//host updates their gold
+        //gold += mNewGold[0];//host updates their gold//this was causing issues when going to the shop
         var count = ds_list_size(socketList);
         if(count &gt; 0)
         {
