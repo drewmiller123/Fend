@@ -9,6 +9,9 @@ scrDrawObjectToBuffer(objCastleRight);
 scrDrawObjectToBuffer(objGate);
 
 
+/////////////Dead Ice Giant//////////////
+scrDrawObjectToBuffer(objIceGiantDead)
+
 
 ////////////LargeEnemies///////////////
 //Zeus

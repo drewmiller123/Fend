@@ -36,7 +36,7 @@ switch(spIndex)
     case sprGreenMage: case sprGreenMageCast: case sprGreenMageDeath: case sprGreenMageCarnage:
         pSprite = sprMagePal;
     break;
-    case sprIceGiantWalk: case sprIceGiantAttack: case sprIceDropMinion: case sprIceGiantHead: case sprIceGiantCarnage:
+    case sprIceGiantWalk: case sprIceGiantAttack: case sprIceDropMinion: case sprIceGiantHead: case sprIceGiantCarnage: case sprIceGiantDeath:
         pSprite = sprIcePal;
     break;
     case sprSnowManJump: case sprSnowBall: case sprSnowBallExplode: case sprSnowManThrow: case sprSnowManDying: case sprSnowManPunch: case sprSnowManCarnage:
