@@ -42,7 +42,8 @@ startingSpeed = speed;
 image_index = irandom(image_number-1);
 image_speed = .25;
 startingImageSpeed = image_speed;
-//attackDamage = 3;
+attackDamage = 1;
+attackReset = true;
 cooldown = irandom(360);
 aura = noone;
 
@@ -54,9 +55,7 @@ fire = noone;
 chilled = false;
 chillTimer = 0;
 frost = noone;
-//attackReset = false;
 
-//squished = false;
 
 hpBar = instance_create(x, y+sprite_height/2 + 8, objHPBar);
 hpBar.owner = id;
@@ -571,16 +570,22 @@ with(other)
           <argument>
             <kind>1</kind>
             <string>speed = 0;
-/*sprite_index = sprFootSoldierAttack;
-if(image_index == 0)
+cooldown = 420;
+if(sprite_index != sprGreenMageAttack)
+{
+    sprite_index = sprGreenMageAttack;
+    image_index = round(image_index);
+    image_speed = startingImageSpeed;
+}
+if(floor(image_index) == 0)
 {
     attackReset = true;
 }
-if(image_index == 5 &amp;&amp; attackReset)
+if(floor(image_index) == 4 &amp;&amp; attackReset)
 {
     attackReset = false;
     objGate.HP -= attackDamage;
-}*/
+}
 </string>
           </argument>
         </arguments>

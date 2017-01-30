@@ -207,6 +207,7 @@
       <sprites name="MageBlue">
         <sprite>sprites\sprBlueMage</sprite>
         <sprite>sprites\sprBlueMageCast</sprite>
+        <sprite>sprites\sprBlueMageAttack</sprite>
         <sprite>sprites\sprEnergyShield</sprite>
         <sprite>sprites\sprEnergyShieldOld</sprite>
         <sprite>sprites\sprBlueMageDeath</sprite>
@@ -217,6 +218,7 @@
       <sprites name="MageGreen">
         <sprite>sprites\sprGreenMage</sprite>
         <sprite>sprites\sprGreenMageCast</sprite>
+        <sprite>sprites\sprGreenMageAttack</sprite>
         <sprite>sprites\sprHealAura</sprite>
         <sprite>sprites\sprGreenMageDeath</sprite>
         <sprite>sprites\sprGreenMageCarnage</sprite>

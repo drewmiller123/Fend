@@ -30,10 +30,10 @@ switch(spIndex)
     case sprDragonFlying: case sprDragonFiring: case sprDragonDying: case sprDragonCarnage:
         pSprite = sprDragonPal;
     break;
-    case sprBlueMage: case sprBlueMageCast: case sprBlueMageDeath: case sprBlueMageCarnage:
+    case sprBlueMage: case sprBlueMageCast: case sprBlueMageAttack: case sprBlueMageDeath: case sprBlueMageCarnage:
         pSprite = sprMagePal;
     break;
-    case sprGreenMage: case sprGreenMageCast: case sprGreenMageDeath: case sprGreenMageCarnage:
+    case sprGreenMage: case sprGreenMageCast: case sprGreenMageAttack: case sprGreenMageDeath: case sprGreenMageCarnage:
         pSprite = sprMagePal;
     break;
     case sprIceGiantWalk: case sprIceGiantAttack: case sprIceDropMinion: case sprIceGiantHead: case sprIceGiantCarnage: case sprIceGiantDeath:

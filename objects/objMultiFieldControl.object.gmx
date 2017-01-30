@@ -677,7 +677,14 @@ if(hosting)
             <string>if(carnageState)
 {
     day++;
-    scrSaveGame();
+    if(multiplayerMode)
+    {
+        scrMultiplayerSave();
+    }
+    else
+    {
+        scrSaveGame();
+    }
 }
 //audio_stop_sound(sndBattlefieldSong);
 

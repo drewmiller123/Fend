@@ -78,8 +78,11 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>multiplayerMode = true;
-room_goto(rmMultiplayer);
+            <string>if(visible)
+{
+    multiplayerMode = true;
+    room_goto(rmMultiplayer);
+}
 
 </string>
           </argument>
