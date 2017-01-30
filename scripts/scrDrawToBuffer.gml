@@ -17,6 +17,7 @@ scrDrawObjectToBuffer(objIceGiantDead)
 //Zeus
 scrDrawObjectToBuffer(objZeusDead);
 scrDrawObjectToBuffer(objZeus);
+scrDrawObjectToBuffer(objZeusWet);
 scrDrawObjectToBuffer(objFrozen);
 scrDrawObjectToBuffer(objZeusCloud);
 scrDrawObjectToBuffer(objDarkCloud);

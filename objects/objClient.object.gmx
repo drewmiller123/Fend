@@ -574,13 +574,13 @@ if(currentState == mLobbyState)
         scrDrawTextOutline(string(mMultiShot[d]), view_wview[0]/4 + sprite_get_width(sprDamageUpgrade)*5/4 + spacing, sp + d*vSpacing,c_white,c_black);
         
         draw_sprite_ext(sprFireDisplay,0,view_wview[0]/4 + sprite_get_width(sprDamageUpgrade)*5/4*2, sp + d*vSpacing, .5,.5,0,c_white,1);
-        scrDrawTextOutline(string_replace_all(string(mFireMult[d]),"0",""), view_wview[0]/4 + sprite_get_width(sprDamageUpgrade)*5/4*2 + spacing, sp + d*vSpacing,c_white,c_black);
+        scrDrawTextOutline(string_replace_all(string(mFireMult[d]),"0.","."), view_wview[0]/4 + sprite_get_width(sprDamageUpgrade)*5/4*2 + spacing, sp + d*vSpacing,c_white,c_black);
         
         draw_sprite_ext(sprFrostDisplay,0,view_wview[0]/4 + sprite_get_width(sprDamageUpgrade)*5/4*3, sp + d*vSpacing, .5,.5,0,c_white,1);
-        scrDrawTextOutline(string_replace_all(string(mFrostMult[d]),"0",""), view_wview[0]/4 + sprite_get_width(sprDamageUpgrade)*5/4*3 + spacing, sp + d*vSpacing,c_white,c_black);
+        scrDrawTextOutline(string_replace_all(string(mFrostMult[d]),"0.","."), view_wview[0]/4 + sprite_get_width(sprDamageUpgrade)*5/4*3 + spacing, sp + d*vSpacing,c_white,c_black);
         
         draw_sprite_ext(sprLightningDisplay,0,view_wview[0]/4 + sprite_get_width(sprDamageUpgrade)*5/4*4, sp + d*vSpacing, .5,.5,0,c_white,1);
-        scrDrawTextOutline(string_replace_all(string(mLightningMult[d]),"0",""), view_wview[0]/4 + sprite_get_width(sprDamageUpgrade)*5/4*4 + spacing, sp + d*vSpacing,c_white,c_black);
+        scrDrawTextOutline(string_replace_all(string(mLightningMult[d]),"0.","."), view_wview[0]/4 + sprite_get_width(sprDamageUpgrade)*5/4*4 + spacing, sp + d*vSpacing,c_white,c_black);
         
         draw_sprite(sprReady, mReady[d], view_wview[0] * 43/60, sp + d*vSpacing);
         

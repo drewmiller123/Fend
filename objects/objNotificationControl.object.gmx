@@ -213,7 +213,7 @@ if(room == rmLightningUnlock)
 if(room == rmWin)
 {
     scrDrawTextOutline("##Thank you for playing Fend!"
-                        +"#####Please try out Endless Mode by selecting " + chr(34) + "New Game" + chr(34) + " from the Main Menu.",view_wview[0]/2,y,c_white,c_black)
+                        +"#####Please try out Endless Mode##by selecting " + chr(34) + "New Game" + chr(34) + " from the Main Menu.",view_wview[0]/2,y,c_white,c_black)
 }
 if(room == rmFireUpgrade)
 {

@@ -117,7 +117,7 @@ event_perform(ev_other,ev_user10);
 
 if(HP &lt;= 0)
 {
-    //var inst = instance_create(x,y,objFootSoldierDead);
+    var inst = instance_create(x,y,objIceGiantDead);
     //inst.squished = squished;
     //var snd = choose(sndSoldierDeath1, sndSoldierDeath2);
     //audio_play_sound(snd, 0, false);

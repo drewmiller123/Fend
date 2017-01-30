@@ -208,11 +208,11 @@ if(displayStats)
     draw_set_halign(fa_left);
     if(frostDamageMult == .5)
     {
-        scrDrawTextOutline("##Increases#lightning damage#by .5x",objInfoTextBox.x + 10,objInfoTextBox.y + 10,c_white,c_black)
+        scrDrawTextOutline("##Increases#lightning #damage by .5x",objInfoTextBox.x + 10,objInfoTextBox.y + 10,c_white,c_black)
     }
     else
     {
-        scrDrawTextOutline("##Increases#lightning damage#by 1x",objInfoTextBox.x + 10,objInfoTextBox.y + 10,c_white,c_black)
+        scrDrawTextOutline("##Increases#lightning #damage by 1x",objInfoTextBox.x + 10,objInfoTextBox.y + 10,c_white,c_black)
     }
 }
 </string>

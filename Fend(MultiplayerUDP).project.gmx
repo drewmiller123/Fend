@@ -482,6 +482,7 @@
   <fonts name="fonts">
     <font>fonts\fntArrowUpgrade</font>
     <font>fonts\fntUpgrade</font>
+    <font>fonts\fntMediumMenuButton</font>
     <font>fonts\fntMultiUpgrade</font>
     <font>fonts\fntDamageUpgrade</font>
     <font>fonts\fntPing</font>
@@ -617,6 +618,7 @@
         <object>objects\objCloudMinion</object>
         <object>objects\objCloudMinionDark</object>
         <object>objects\objCloudMinionDead</object>
+        <object>objects\objZeusWet</object>
       </objects>
     </objects>
     <objects name="Effects">

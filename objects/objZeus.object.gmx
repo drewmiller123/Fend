@@ -212,6 +212,15 @@ if(spawnState)
             var rand = -cloud.sprite_width/2 + irandom(cloud.sprite_width);
             instance_create(cloud.x+rand,cloud.y + cloud.sprite_height*5/8,objZeusRain); 
             //instance_create(cloud.x+cloud.sprite_width*3/8,cloud.y,objCloudMinion);  
+            
+            wet = true;//triggers when first rain is spawned to show that zeus is wet
+            //create wet drops over zeus
+                //they should self replicate as long as he is wet
+            if(!instance_exists(objZeusWet))
+            {
+                var drips = instance_create(x,y+sprite_height*3/4,objZeusWet);
+                drips.owner = id;
+            }
         }
         spawnCD--;
     }
