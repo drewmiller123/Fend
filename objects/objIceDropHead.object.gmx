@@ -41,7 +41,7 @@ HP = maxHP;
 speed = baseEnemySpeed;
 image_index = irandom(image_number-1);
 image_speed = .5;
-attackDamage = 100;
+attackDamage = 10;
 attackReset = false;
 
 burning = false;
@@ -109,7 +109,13 @@ event_perform(ev_other,ev_user10);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(instance_exists(hpBar))
+            <string>if(!instance_exists(objGate))
+{
+    speed = baseEnemySpeed*2;
+    sprite_index = sprIceGiantHead;
+}
+
+if(instance_exists(hpBar))
 {
     hpBar.x = x;
     hpBar.y = y + sprite_height/2 + 8;
@@ -402,12 +408,32 @@ with(other)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
+            <string>if(sprite_index != sprIceGiantHeadAttack)
+{
+    sprite_index = sprIceGiantHeadAttack;
+    image_index = 0; 
+    speed = 0;   
+}
 
-with(other)
+if(image_index == 0 || image_index == 1)
+{
+    x -= sprite_width/16;
+    attackReset = true;
+}
+else if(image_index == 2 &amp;&amp; attackReset)
+{
+    //x-= sprite_width/4;
+    attackReset = false;
+    objGate.HP -= attackDamage;
+}
+else if(image_index == 3 || image_index == 4 || image_index == 5 || image_index == 6)
+{
+    x += sprite_width/32;
+}
+/*with(other)
 {
     HP -= other.attackDamage;
-}
+}*/
 
 //instance_destroy();
 </string>

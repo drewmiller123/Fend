@@ -234,6 +234,7 @@
         <sprite>sprites\sprIceDrop</sprite>
         <sprite>sprites\sprIceDropMinion</sprite>
         <sprite>sprites\sprIceGiantHead</sprite>
+        <sprite>sprites\sprIceGiantHeadAttack</sprite>
         <sprite>sprites\sprIceGiantDeath</sprite>
         <sprite>sprites\sprIceGiantDeathOld</sprite>
         <sprite>sprites\sprIceGiantCarnageOld</sprite>
