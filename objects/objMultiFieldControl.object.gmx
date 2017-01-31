@@ -138,7 +138,7 @@
     
     
     ///Theme
-    if((day + 1) mod 20 &gt; 10)
+    if((day + 1) mod 22 &gt; 11)
     {
         scrPlayMusic(sndSnowSong);
         //if(!sound_isplaying(sndSnowSong))
@@ -679,7 +679,10 @@ if(hosting)
     day++;
     if(multiplayerMode)
     {
-        scrMultiplayerSave();
+        if(hosting)
+        {
+            scrMultiplayerSave();
+        }
     }
     else
     {

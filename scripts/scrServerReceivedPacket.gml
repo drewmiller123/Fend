@@ -88,6 +88,7 @@ switch(msgid)
         buffer_write(buffer,buffer_bool,mReady[player]);
         network_send_udp(socket, ip, port, buffer, buffer_tell(buffer));
         scrSendLobbyStats();
+        scrMultiplayerSave();
     break;
     /*case netStateUpdate:
         var player = ds_list_find_index(ipList,ip)+1;
@@ -106,6 +107,7 @@ switch(msgid)
         buffer_write(buffer,buffer_u8,netStatAck);
         network_send_udp(socket, ip, port, buffer, buffer_tell(buffer));
         scrSendLobbyStats();
+        scrMultiplayerSave();
     break;
     case netInitialRequest:
         var player = ds_list_find_index(ipList,ip)+1;

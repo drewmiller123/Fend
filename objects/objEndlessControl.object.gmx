@@ -122,7 +122,7 @@ else
 
 
 ///Theme
-if((day + 1) mod 20 &gt; 10)
+if((day + 1) mod 22 &gt; 11)
 {
     if(!sound_isplaying(sndSnowSong))
     {
