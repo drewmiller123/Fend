@@ -151,6 +151,7 @@
     <sprites name="Menu">
       <sprite>sprites\sprPlayerArcherDisplay</sprite>
       <sprite>sprites\sprMenuButton</sprite>
+      <sprite>sprites\sprMenuButtonHover</sprite>
       <sprite>sprites\sprCarnageReportOld</sprite>
       <sprite>sprites\sprCarnageReport</sprite>
       <sprite>sprites\sprDamagePercentage</sprite>
@@ -550,6 +551,7 @@
       <object>objects\objShopUndoButton</object>
       <object>objects\objMainMenuButton</object>
       <object>objects\objMultiplayerButton</object>
+      <object>objects\objMenuButtonParent</object>
     </objects>
     <objects name="Enemies">
       <object>objects\objEnemyParent</object>
@@ -706,6 +708,7 @@
     </objects>
     <objects name="Control">
       <object>objects\objInitialize</object>
+      <object>objects\objFullScreenControl</object>
       <object>objects\objSplashControl</object>
       <object>objects\objMainMenuControl</object>
       <object>objects\objUpgradeControl</object>
