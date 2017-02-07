@@ -28,12 +28,11 @@
             <string>
 
 //coin = instance_create(x,y,objDisplayCoin);
-resume = instance_create(x,y-sprite_get_height(sprMenuButton)*2.5,objPauseResumeButton);
-shop = instance_create(x,y-sprite_get_height(sprMenuButton)*1,objPauseShopButton);
-main = instance_create(x,y+sprite_get_height(sprMenuButton)*.5,objPauseMainButton);
-quit = instance_create(x,y+sprite_get_height(sprMenuButton)*2,objPauseExitButton);
-yes = instance_create(x - sprite_get_width(sprMenuButton)*3/4, view_hview[0] - sprite_get_height(sprMenuButton)*5/4,objPauseYes);
-no = instance_create(x + sprite_get_width(sprMenuButton)*3/4, view_hview[0] - sprite_get_height(sprMenuButton)*5/4,objPauseNo);
+OK = instance_create(view_wview[0]*7/8,view_hview[0]*7/8,objOKButton);
+musicMeter = instance_create(view_wview[0]*3/4,view_hview[0]/4,objMusicMeter);
+SFXMeter = instance_create(view_wview[0]*3/4,view_hview[0]/2,objSFXMeter);
+
+
 //visible = true;
 
 
@@ -59,35 +58,21 @@ no = instance_create(x + sprite_get_width(sprMenuButton)*3/4, view_hview[0] - sp
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>surface_free(pauseSurface);
-
-with(coin)
+            <string>with(OK)
 {
     instance_destroy();
 }
-with(resume)
+with(musicMeter)
 {
     instance_destroy();
 }
-with(shop)
+with(SFXMeter)
 {
     instance_destroy();
 }
-with(main)
+if(instance_exists(objPause))
 {
-    instance_destroy();
-}
-with(quit)
-{
-    instance_destroy();
-}
-with(yes)
-{
-    instance_destroy();
-}
-with(no)
-{
-    instance_destroy();
+    objPause.optionsState = false;
 }
 //instance_activate_all();
 //audio_resume_all();
@@ -117,6 +102,10 @@ with(no)
 
 if(escape)
 {
+    if(room == rmOptions)
+    {
+        room_goto(rmMainMenu);
+    }
     instance_destroy();
 }
 </string>
@@ -167,7 +156,7 @@ instance_destroy();
             <kind>1</kind>
             <string>
 
-///Control
+/*///Control
 draw_set_font(fntDamageUpgrade);
 draw_set_halign(fa_center);
 
@@ -184,7 +173,7 @@ if(mainState)
 if(exitState)
 {
     scrDrawTextOutline("########Would you like to close Fend?",x,y,c_white,c_black)
-}
+}*/
 </string>
           </argument>
         </arguments>

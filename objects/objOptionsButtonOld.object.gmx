@@ -8,29 +8,6 @@
   <parentName>objMenuButtonParent</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="0" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>depth = -1000;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -48,14 +25,49 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(objPause.shopState || objPause.exitState || objPause.mainState || objPause.optionsState)
+            <string>if(multiplayerMode)
 {
-    visible = false;
+    if(hosting)
+    {
+        if(room == rmLobby)
+        {
+            /*var allReady = true;
+            for(i = 0; i &lt;= objServer.numClients; i++)
+            {
+                if(!mReady[i])
+                {
+                    allReady = false;
+                }
+            }
+            
+            if(objServer.numClients == 0)
+            {
+                visible = false;
+            }
+            else if(allReady)
+            {
+                visible = true;
+            }
+            else
+            {
+                visible = false;
+            }*/
+            visible = true;
+        }
+    }
+    else
+    {
+        if(objClient.needReady)
+        {
+            visible = true;
+        }
+        else
+        {
+            visible = false;
+        }
+    }
 }
-else
-{
-    visible = true;
-}
+
 </string>
           </argument>
         </arguments>
@@ -78,17 +90,20 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(visible)
+            <string>if(room == rmMainMenu)
 {
-    objPause.shopState = true;
+    room_goto(rmOptions);
 }
-//room_goto(rmUpgrade);
+else
+{
+    instance_create(0,0,objOptions);
+}
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="75">
+    <event eventtype="8" enumb="64">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -105,11 +120,10 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_self();
-draw_set_font(fntUpgrade);
+            <string>draw_set_font(fntUpgrade);
 draw_set_halign(fa_center);
 
-scrDrawTextOutline("Shop",x,y-sprite_width/32,c_white,c_black)
+scrDrawTextOutline("Options",x,y-sprite_width/32,c_white,c_black)
 
 </string>
           </argument>

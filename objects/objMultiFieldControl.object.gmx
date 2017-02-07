@@ -608,7 +608,17 @@ if(hosting)
     
     if(escape)
     {
-        instance_create(view_wview[0]/2,view_hview[0]/2,objPause);
+        if(instance_exists(objClientPause))
+        {
+            with(objClientPause)
+            {
+                instance_destroy();
+            }
+        }
+        else
+        {
+            instance_create(view_wview[0]/2,view_hview[0]/2,objClientPause);
+        }
     }
     
     if(q)

@@ -350,6 +350,8 @@
       <script>scripts\scrSaveGame.gml</script>
       <script>scripts\scrLoadGame.gml</script>
       <script>scripts\scrResetStats.gml</script>
+      <script>scripts\scrSaveOptions.gml</script>
+      <script>scripts\scrLoadOptions.gml</script>
     </scripts>
     <scripts name="CarnageReport">
       <script>scripts\scrDisplayCarnage.gml</script>
@@ -478,6 +480,7 @@
       <script>scripts\scrGetMultiSprite.gml</script>
     </scripts>
     <script>scripts\scrSimplifyNum.gml</script>
+    <script>scripts\scrSetAudioGains.gml</script>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shdBurn.shader</shader>
@@ -504,6 +507,7 @@
         <object>objects\objNormalSelect</object>
         <object>objects\objLoadGame</object>
         <object>objects\objMainExit</object>
+        <object>objects\objOptionsButton</object>
         <object>objects\objMainNo</object>
         <object>objects\objMainYes</object>
         <object>objects\objTitle</object>
@@ -513,6 +517,7 @@
         <object>objects\objPauseShopButton</object>
         <object>objects\objPauseMainButton</object>
         <object>objects\objPauseExitButton</object>
+        <object>objects\objPauseOptionsButton</object>
         <object>objects\objPauseNo</object>
         <object>objects\objPauseYes</object>
       </objects>
@@ -548,6 +553,17 @@
         <object>objects\objJoinButton</object>
         <object>objects\objIPButton</object>
         <object>objects\objLobbyPlayer</object>
+      </objects>
+      <objects name="Options">
+        <object>objects\objOKButton</object>
+        <object>objects\objMusicMeter</object>
+        <object>objects\objSFXMeter</object>
+        <object>objects\objMusicSlider</object>
+        <object>objects\objSFXSlider</object>
+        <object>objects\objMusicVolUp</object>
+        <object>objects\objMusicVolDown</object>
+        <object>objects\objSFXVolUp</object>
+        <object>objects\objSFXVolDown</object>
       </objects>
       <object>objects\objContinueButton</object>
       <object>objects\objTestButton</object>

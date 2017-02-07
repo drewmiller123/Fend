@@ -80,7 +80,14 @@ else
             <kind>1</kind>
             <string>if(visible)
 {
-    objPause.shopState = true;
+    if(!instance_exists(objOptions))
+    {
+        instance_create(0,0,objOptions);
+        objPause.optionsState = true;
+        objPause.shopState = false;
+        objPause.exitState = false;
+        objPause.mainState = false;
+    }
 }
 //room_goto(rmUpgrade);
 </string>
@@ -109,7 +116,7 @@ else
 draw_set_font(fntUpgrade);
 draw_set_halign(fa_center);
 
-scrDrawTextOutline("Shop",x,y-sprite_width/32,c_white,c_black)
+scrDrawTextOutline("Options",x,y-sprite_width/32,c_white,c_black)
 
 </string>
           </argument>

@@ -108,7 +108,7 @@ if(objPause.exitState)
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="64">
+    <event eventtype="8" enumb="75">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -125,7 +125,8 @@ if(objPause.exitState)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_font(fntUpgrade);
+            <string>draw_self();
+draw_set_font(fntUpgrade);
 draw_set_halign(fa_center);
 
 scrDrawTextOutline("Yes",x,y-sprite_width/32,c_white,c_black)

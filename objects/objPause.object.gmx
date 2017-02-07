@@ -30,6 +30,7 @@
 shopState = false;
 exitState = false;
 mainState = false;
+optionsState = false;
 coin = noone;
 
 pauseSurface = surface_create(view_wview[0],view_hview[0]);
@@ -77,6 +78,7 @@ resume = instance_create(x,y-sprite_get_height(sprMenuButton)*2.5,objPauseResume
 shop = instance_create(x,y-sprite_get_height(sprMenuButton)*1,objPauseShopButton);
 main = instance_create(x,y+sprite_get_height(sprMenuButton)*.5,objPauseMainButton);
 quit = instance_create(x,y+sprite_get_height(sprMenuButton)*2,objPauseExitButton);
+options = instance_create(view_wview[0]/4,y+sprite_get_height(sprMenuButton)*2,objPauseOptionsButton);
 yes = instance_create(x - sprite_get_width(sprMenuButton)*3/4, view_hview[0] - sprite_get_height(sprMenuButton)*5/4,objPauseYes);
 no = instance_create(x + sprite_get_width(sprMenuButton)*3/4, view_hview[0] - sprite_get_height(sprMenuButton)*5/4,objPauseNo);
 //visible = true;
@@ -123,6 +125,10 @@ with(main)
     instance_destroy();
 }
 with(quit)
+{
+    instance_destroy();
+}
+with(options)
 {
     instance_destroy();
 }

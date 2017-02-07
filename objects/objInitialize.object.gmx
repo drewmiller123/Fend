@@ -31,7 +31,13 @@
 display_reset(0,true);
 
 
+globalvar userMusicGain;
+userMusicGain = 1;
 
+globalvar userSFXGain;
+userSFXGain = 1;
+
+scrLoadOptions();
 
 
 globalvar gameSteps;
@@ -264,8 +270,29 @@ switch (os_browser)
 }
 
 ///////////////AUDIO GAIN//////////////////////
+scrSetAudioGains();
+/*globalvar bowGain, arrowFlyingGain, arrowSnapGain, shockGain, coinGain, soldierGain, trollGain, boulderGain, squishGain, peasantGain, dragonSpawnGain, dragonDeathGain, dragonBreathGain, shieldGain, steamGain;
+globalvar musicGain;
 
-//BowFiring
+bowGain = .1;
+arrowFlyingGain = .05;
+arrowSnapGain = .025;
+shockGain = .02;
+coinGain = .1;
+soldierGain = .1;
+trollGain = .2;
+boulderGain = .15;
+squishGain = .5;
+peasantGain = .1;
+dragonSpawnGain = .1;
+dragonDeathGain = .1;
+dragonBreathGain = .25;
+shieldGain = .25;
+steamGain = .02;
+
+musicGain = .2;*///probably don't need this if the gains are only ever changed in the scrSetAudioGains() script
+
+/*//BowFiring
 audio_sound_gain(sndBowFire,.1,0);
 
 //ArrowFlying
@@ -316,7 +343,7 @@ audio_sound_gain(sndSteam, .02, 0);
 
 //Music
 audio_sound_gain(sndBattlefieldSong, .2, 0);
-audio_sound_gain(sndSnowSong, .2, 0);
+audio_sound_gain(sndSnowSong, .2, 0);*/
 /////////////////////////////////////////////////
 
 
