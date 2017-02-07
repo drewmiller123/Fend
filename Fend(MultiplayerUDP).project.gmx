@@ -156,6 +156,10 @@
       <sprite>sprites\sprCarnageReport</sprite>
       <sprite>sprites\sprDamagePercentage</sprite>
       <sprite>sprites\sprTitle</sprite>
+      <sprite>sprites\sprVolumeUp</sprite>
+      <sprite>sprites\sprVolumeDown</sprite>
+      <sprite>sprites\sprVolumeSlider</sprite>
+      <sprite>sprites\sprVolumeMeter</sprite>
       <sprites name="Strings">
         <sprite>sprites\sprPlayer</sprite>
       </sprites>
@@ -716,6 +720,7 @@
       <object>objects\objEnemyWave</object>
       <object>objects\objShakeEffect</object>
       <object>objects\objPause</object>
+      <object>objects\objOptions</object>
       <object>objects\objCarnage</object>
       <object>objects\objNotificationControl</object>
       <object>objects\objDisplayCoin</object>

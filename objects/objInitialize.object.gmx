@@ -270,7 +270,6 @@ audio_sound_gain(sndBowFire,.1,0);
 
 //ArrowFlying
 audio_sound_gain(sndFlyingArrow,.05,0);
-//audio_sound_gain(sndFlyingArrow,0,300);
 
 //ArrowSnap
 audio_sound_gain(sndArrowSnap,.025,0);
