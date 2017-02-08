@@ -89,7 +89,7 @@ with(slider)
 
 draw_set_halign(fa_right);
 draw_set_valign(fa_middle);
-draw_set_font(fntArrowUpgrade);
+draw_set_font(fntOptions);
 
 scrDrawTextOutline("Music Volume:  ", x-sprite_width/2-32,y,c_white,c_black);
 

@@ -160,6 +160,8 @@
       <sprite>sprites\sprVolumeDown</sprite>
       <sprite>sprites\sprVolumeSlider</sprite>
       <sprite>sprites\sprVolumeMeter</sprite>
+      <sprite>sprites\sprFullScreenOff</sprite>
+      <sprite>sprites\sprFullScreenOn</sprite>
       <sprites name="Strings">
         <sprite>sprites\sprPlayer</sprite>
       </sprites>
@@ -492,6 +494,7 @@
   </shaders>
   <fonts name="fonts">
     <font>fonts\fntArrowUpgrade</font>
+    <font>fonts\fntOptions</font>
     <font>fonts\fntUpgrade</font>
     <font>fonts\fntMediumMenuButton</font>
     <font>fonts\fntMultiUpgrade</font>
@@ -564,6 +567,7 @@
         <object>objects\objMusicVolDown</object>
         <object>objects\objSFXVolUp</object>
         <object>objects\objSFXVolDown</object>
+        <object>objects\objFullScreenToggle</object>
       </objects>
       <object>objects\objContinueButton</object>
       <object>objects\objTestButton</object>

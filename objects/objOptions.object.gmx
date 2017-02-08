@@ -31,6 +31,7 @@
 OK = instance_create(view_wview[0]*7/8,view_hview[0]*7/8,objOKButton);
 musicMeter = instance_create(view_wview[0]*3/4,view_hview[0]/4,objMusicMeter);
 SFXMeter = instance_create(view_wview[0]*3/4,view_hview[0]/2,objSFXMeter);
+fullScreen = instance_create(view_wview[0]*3/4 - objMusicMeter.sprite_width/2,view_hview[0]*3/4,objFullScreenToggle);
 
 
 //visible = true;
@@ -67,6 +68,10 @@ with(musicMeter)
     instance_destroy();
 }
 with(SFXMeter)
+{
+    instance_destroy();
+}
+with(fullScreen)
 {
     instance_destroy();
 }
