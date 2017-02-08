@@ -43,6 +43,13 @@ exitState = false;
 endlessState = false
 endlessSelectState = false;
 
+if(!audio_is_playing(sndShopSong))
+{
+    audio_stop_sound(sndBattlefieldSong);
+    audio_stop_sound(sndSnowSong);
+    audio_play_sound(sndShopSong,0,true);
+}
+
 scrLoadGame();
 
 </string>
@@ -126,6 +133,16 @@ if(endlessSelectState)
 {
     scrDrawTextOutline("##Which Mode would you like to play?",x,y,c_white,c_black)
 }
+
+draw_set_font(fntPing)
+draw_set_halign(fa_right)
+draw_set_valign(fa_bottom)
+
+scrDrawTextOutline("version " + version,view_wview[0]-8, view_hview[0]-8,c_white,c_black);
+
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);
+
 </string>
           </argument>
         </arguments>

@@ -168,6 +168,10 @@ switch(msgid)
     break;
     case netError:
         errMsg = buffer_read(buff, buffer_string);
+        if(errMsg == "Client version did not match host.#Returning to main menu.")
+        {
+            initialAck = true;
+        }
         alarm[11] = 180;
     break;
     case netLobbyStats:

@@ -110,20 +110,30 @@ switch(msgid)
         scrMultiplayerSave();
     break;
     case netInitialRequest:
-        var player = ds_list_find_index(ipList,ip)+1;
-        scrNewPlayerScaling(player);
-        buffer_seek(buffer,buffer_seek_start,0);
-        buffer_write(buffer,buffer_u8,netInitialRequest);
-        buffer_write(buffer,buffer_u8,player);
-        buffer_write(buffer,buffer_u16,day);
-        buffer_write(buffer,buffer_u32,mGold[player]);
-        buffer_write(buffer,buffer_u16,mArrowDamage[player]);
-        buffer_write(buffer,buffer_u8,mMultiShot[player]);
-        buffer_write(buffer,buffer_u16,mBowSpeed[player]*1000);
-        buffer_write(buffer,buffer_u16,mFireMult[player]*100);
-        buffer_write(buffer,buffer_u16,mFrostMult[player]*100);
-        buffer_write(buffer,buffer_u16,mLightningMult[player]*100);
-        network_send_udp(socket, ip, port, buffer, buffer_tell(buffer));
-        scrSendLobbyStats();
+        var cVersion = buffer_read(buff, buffer_string);
+        if(cVersion != version)
+        {
+            errMsg = "Client version did not match host.#Returning to main menu."
+            alarm[0] = 180;
+            scrSendError();
+        }
+        else
+        {
+            var player = ds_list_find_index(ipList,ip)+1;
+            scrNewPlayerScaling(player);
+            buffer_seek(buffer,buffer_seek_start,0);
+            buffer_write(buffer,buffer_u8,netInitialRequest);
+            buffer_write(buffer,buffer_u8,player);
+            buffer_write(buffer,buffer_u16,day);
+            buffer_write(buffer,buffer_u32,mGold[player]);
+            buffer_write(buffer,buffer_u16,mArrowDamage[player]);
+            buffer_write(buffer,buffer_u8,mMultiShot[player]);
+            buffer_write(buffer,buffer_u16,mBowSpeed[player]*1000);
+            buffer_write(buffer,buffer_u16,mFireMult[player]*100);
+            buffer_write(buffer,buffer_u16,mFrostMult[player]*100);
+            buffer_write(buffer,buffer_u16,mLightningMult[player]*100);
+            network_send_udp(socket, ip, port, buffer, buffer_tell(buffer));
+            scrSendLobbyStats();
+        }
     break;
 }

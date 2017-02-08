@@ -615,6 +615,10 @@ if(hosting)
                 instance_destroy();
             }
         }
+        else if(carnageState)
+        {
+            room_goto(rmMultiUpgrade);
+        }
         else
         {
             instance_create(view_wview[0]/2,view_hview[0]/2,objClientPause);

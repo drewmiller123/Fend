@@ -159,6 +159,15 @@ if(room == rmLobby)
         coin.visible = true;
     }
 }
+
+draw_set_font(fntPing)
+draw_set_halign(fa_right)
+draw_set_valign(fa_bottom)
+
+scrDrawTextOutline("version " + version,view_wview[0]-8, view_hview[0]-8,c_white,c_black);
+
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);
 </string>
           </argument>
         </arguments>

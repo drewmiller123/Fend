@@ -33,6 +33,7 @@ else
 {
     window_set_fullscreen(true);
 }
+scrSaveOptions();
 </string>
           </argument>
         </arguments>

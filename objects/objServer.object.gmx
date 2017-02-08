@@ -532,15 +532,15 @@ ds_list_destroy(socketList);
           <argument>
             <kind>1</kind>
             <string>draw_set_halign(fa_left);
-draw_text(5, 5, "Server Status: "+ string(server &gt;= 0));
-draw_text(5, 30, "Total Clients: " + string(ds_list_size(socketList)));
-draw_text(5, 55, "MultiplayerGold: " + string(multiplayerGold));
-draw_text(5, 80, "needReady: " + string(needReady));
+//draw_text(5, 5, "Server Status: "+ string(server &gt;= 0));
+//draw_text(5, 30, "Total Clients: " + string(ds_list_size(socketList)));
+//draw_text(5, 55, "MultiplayerGold: " + string(multiplayerGold));
+//draw_text(5, 80, "needReady: " + string(needReady));
 //draw_text(5, 105, "MultiplayerGold: " + string(multiplayerGold));
 
 if(room == rmLobby &amp;&amp; showIP)
 {
-    scrDrawTextOutline("IP Address:" + myIP,objIPButton.x-objIPButton.sprite_width/2,objIPButton.y-objIPButton.sprite_height*3/4,c_white,c_black);
+    scrDrawTextOutline("IP Address: " + myIP,objIPButton.x-objIPButton.sprite_width/2,objIPButton.y-objIPButton.sprite_height*3/4,c_white,c_black);
 }
 //draw_text(5, 80, "clientY: " + string(displayy));
 //draw_text(5, 105, "clientClicked: " + string(displayClicked));

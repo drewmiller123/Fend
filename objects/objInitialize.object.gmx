@@ -30,6 +30,8 @@
 
 display_reset(0,true);
 
+globalvar version;
+version = string(GM_version);
 
 globalvar userMusicGain;
 userMusicGain = 1;

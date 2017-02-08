@@ -140,8 +140,9 @@ with(no)
 {
     instance_destroy();
 }
-instance_activate_all();
 audio_resume_all();
+instance_activate_all();
+
 </string>
           </argument>
         </arguments>

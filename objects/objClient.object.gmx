@@ -80,6 +80,7 @@ coin = instance_create(x,y,objDisplayCoin);
 
 buffer_seek(buffer, buffer_seek_start,0);
 buffer_write(buffer, buffer_u8,netInitialRequest);
+buffer_write(buffer, buffer_string,version);
 alarm[1] = 30;
 network_send_udp(socket, IPAddress, remotePort, buffer, buffer_tell(buffer));
 
@@ -483,10 +484,10 @@ scrDrawTextOutline("Ping: " + string(ping), view_wview[0] -32, 8,c_white,c_black
 draw_set_font(fntDamageUpgrade);
 draw_set_halign(fa_left);
 
-draw_text(5, 55, "State: " + string(currentState));//
-draw_text(5, 80, "SubState: " + string(subState));//
-draw_text(5, 105, "RemoteIP " + IPAddress);//
-draw_text(5, 130, "RemotePort " + string(remotePort));//
+//draw_text(5, 55, "State: " + string(currentState));//
+//draw_text(5, 80, "SubState: " + string(subState));//
+//draw_text(5, 105, "RemoteIP " + IPAddress);//
+//draw_text(5, 130, "RemotePort " + string(remotePort));//
 
 if(currentState == mBattleFieldState)
 {
