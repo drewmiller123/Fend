@@ -74,6 +74,11 @@ showIP = false;
 
 lobbyCounter = 0;
 
+reticle[0] = noone;
+reticle[1] = noone;
+reticle[2] = noone;
+reticle[3] = noone;
+
 </string>
           </argument>
         </arguments>
@@ -96,7 +101,12 @@ lobbyCounter = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>network_destroy(server);
+            <string>with(objClientReticle)
+{
+    instance_destroy();
+}
+
+network_destroy(server);
 buffer_delete(buffer);
 ds_list_destroy(socketList);
 </string>
@@ -174,7 +184,18 @@ room_goto(rmMainMenu);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Send player data to ALL attached clients
+            <string>//update client's mouse positions
+var r = 1;
+for(r = 1; r&lt;=numClients; r++)
+{
+    if(instance_exists(reticle[r]))
+    {
+        reticle[r].x = mx[r];
+        reticle[r].y = my[r];
+    }
+}
+
+// Send player data to ALL attached clients
 
 
 if(!instance_exists(objPause))
@@ -268,16 +289,29 @@ mLightningMult[0] = lightningDamageMult;
 //mMultiShot[1] = multiShot;
 //
 
+//set reticle visibility to true only for rmMultiBattlefield
+if(room == rmMultiBattleField)
+{
+    with(objClientReticle)
+    {
+        visible = true;
+    }
+}
+else
+{
+    with(objClientReticle)
+    {
+        visible = false;
+    }
+}
+
+
 if(room == rmMultiUpgrade)
 {
     sendState = mUpgradeState;
     needReady = true;
 }
-else
-{
-    needReady = false;
-}
-if(room == rmLobby)
+else if(room == rmLobby)
 {
     sendState = mLobbyState;
     if(needReady == false)
@@ -287,7 +321,10 @@ if(room == rmLobby)
         alarm[1] = 30;
     }
 }
-
+else
+{
+    needReady = false;
+}
 
 scrSendStateUpdate();
 
@@ -397,6 +434,8 @@ for(t = 0; t &lt; numClients; t++)
             ds_list_add(ipList,ip);
             ds_list_add(portList,port);
             numClients++;
+            reticle[numClients] = instance_create(mx[numClients],my[numClients],objClientReticle);
+            reticle[numClients].player = numClients;
         }
         //buffer_seek(buff, buffer_seek_start,0);
         scrServerReceivedPacket(buff,socket,ip,port);

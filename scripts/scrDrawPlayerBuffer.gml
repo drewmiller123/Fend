@@ -15,6 +15,14 @@ scrDrawPlayerObjectToBuffer(objArcherParent);
 scrDrawPlayerObjectToBuffer(objBowParent);
 
 
+///////////Reticles/////////////////////
+if(room == rmMultiBattleField)
+{
+    scrDrawPlayerObjectToBuffer(objReticle);
+    scrDrawPlayerObjectToBuffer(objClientReticle);
+}
+
+
 
 
 

@@ -118,7 +118,15 @@ if(frostFireUpgrade)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>currentArrow = objIceArrow;
+            <string>if(multiplayerMode &amp;&amp; !hosting)
+{
+    scrSendKey(ord('E'));
+}
+else
+{
+    currentArrow = objIceArrow;
+}
+
 </string>
           </argument>
         </arguments>
@@ -141,7 +149,15 @@ if(frostFireUpgrade)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>currentArrow = objIceArrow;
+            <string>if(multiplayerMode &amp;&amp; !hosting)
+{
+    scrSendKey(ord('E'));
+}
+else
+{
+    currentArrow = objIceArrow;
+}
+
 </string>
           </argument>
         </arguments>

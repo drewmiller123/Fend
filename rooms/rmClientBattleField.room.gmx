@@ -57,6 +57,7 @@
     <instance objName="objClientFrostFireSelecter" x="392" y="140" name="inst_C4F188DE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objClientFrostFireLightningSelecter" x="536" y="140" name="inst_A8D1EE51" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objShopButton" x="1312" y="928" name="inst_998D9A86" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objArrowCollision" x="-32" y="992" name="inst_4C8DF4C4" locked="0" code="" scaleX="1.16666662693024" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

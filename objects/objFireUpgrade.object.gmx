@@ -62,6 +62,17 @@ else// if(position_meeting(mouse_x,mouse_y,self))
 {
     image_index = 0;
 }*/
+
+if(position_meeting(mouse_x,mouse_y,self) &amp;&amp; visible)
+{
+    //image_index = 1;
+    displayStats = true;
+}
+else
+{
+    //image_index = 0;
+    displayStats = false;
+}
 </string>
           </argument>
         </arguments>
@@ -88,6 +99,11 @@ else// if(position_meeting(mouse_x,mouse_y,self))
 draw_set_halign(fa_left);
 scrDrawTextOutline("Fire#Damage",x-sprite_width*2.05,y-sprite_height/2+sprite_height/16,c_white,c_black)
 
+if(displayStats)
+{
+    scrDrawTextOutline("##Fire arrows set#some enemies on#fire and melt#others.",objInfoTextBox.x + 10,objInfoTextBox.y + 10,c_white,c_black)
+}
+
 if(multiplayerMode)
 {
     draw_set_font(fntArrowUpgrade)
@@ -101,6 +117,8 @@ if(multiplayerMode)
         scrDrawTextOutline(string(fireDamageMult) + "x",x+sprite_width/2-8, y+sprite_height/4,c_white,c_black);
     }
 }
+
+
 </string>
           </argument>
         </arguments>

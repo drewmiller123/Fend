@@ -80,8 +80,8 @@ scrDrawObjectToBuffer(objCoin);
 
 ///////////////Arrows/////////////////////////////
 //scrDrawPlayerObjectToBuffer(objArrowParent);
-scrDrawObjectToBuffer(objStuckArrow);
-scrDrawObjectToBuffer(objBrokenArrow);
+//scrDrawObjectToBuffer(objStuckArrow);
+//scrDrawObjectToBuffer(objBrokenArrow);
 
 /////////////////LightningArcs////////////////////
 scrDrawObjectToBuffer(objArcDraw);
@@ -112,6 +112,10 @@ scrDrawObjectToBuffer(objReady);
 ////////////StringSprites//////////////
 scrDrawObjectToBuffer(objNetStringParent);
 
+////////////Reticles////////////////////
+//scrDrawObjectToBuffer(objReticle);
+//scrDrawObjectToBuffer(objClientReticle);
+//moved to scrDrawPlayerToBuffer()
 
 
 

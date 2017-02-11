@@ -66,6 +66,7 @@ surface_reset_target();
 //event_perform(ev_other,ev_user0);
 instance_deactivate_all(true);
 instance_activate_object(objFullScreenControl);
+instance_activate_object(objReticle);
 if(hosting)
 {
     instance_activate_object(objServer);

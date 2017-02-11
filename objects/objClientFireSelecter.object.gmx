@@ -114,7 +114,15 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>currentArrow = objFireArrow;
+            <string>if(multiplayerMode &amp;&amp; !hosting)
+{
+    scrSendKey(ord('W'));
+}
+else
+{
+    currentArrow = objFireArrow;
+}
+
 </string>
           </argument>
         </arguments>
@@ -137,7 +145,15 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>currentArrow = objFireArrow;
+            <string>if(multiplayerMode &amp;&amp; !hosting)
+{
+    scrSendKey(ord('W'));
+}
+else
+{
+    currentArrow = objFireArrow;
+}
+
 </string>
           </argument>
         </arguments>

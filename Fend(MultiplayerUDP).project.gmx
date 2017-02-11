@@ -126,6 +126,7 @@
       <sprite>sprites\sprFireDisplay</sprite>
       <sprite>sprites\sprFrostDisplay</sprite>
       <sprite>sprites\sprLightningDisplay</sprite>
+      <sprite>sprites\sprReticle</sprite>
     </sprites>
     <sprites name="Upgrades">
       <sprites name="BowSpeed">
@@ -367,6 +368,10 @@
         <script>scripts\scrCreateEnemyCarnage.gml</script>
         <script>scripts\scrGetCarnageObject.gml</script>
       </scripts>
+    </scripts>
+    <scripts name="Control">
+      <script>scripts\scrGetScrollUpArrow.gml</script>
+      <script>scripts\scrGetScrollDownArrow.gml</script>
     </scripts>
     <scripts name="EndlessMode">
       <script>scripts\scrGenerateEnemies.gml</script>
@@ -697,6 +702,7 @@
         <object>objects\objBrokenArrowTail</object>
         <object>objects\objArrowCollision</object>
       </objects>
+      <object>objects\objReticle</object>
     </objects>
     <objects name="Upgrade Tiles">
       <objects name="MultiShot">
@@ -772,6 +778,7 @@
       <object>objects\objPlayer2String</object>
       <object>objects\objPlayer3String</object>
       <object>objects\objPlayer4String</object>
+      <object>objects\objClientReticle</object>
     </objects>
   </objects>
   <rooms name="rooms">

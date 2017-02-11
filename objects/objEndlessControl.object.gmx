@@ -526,6 +526,15 @@ if(escape)
     //}
 }
 
+if(mouse_wheel_up())
+{
+    scrGetScrollUpArrow();
+}
+else if(mouse_wheel_down())
+{
+    scrGetScrollDownArrow();
+}
+
 if(q)
 {
     currentArrow = objArrow;

@@ -272,10 +272,10 @@ buffer_write(buffer, buffer_u8,netPing);
 buffer_write(buffer, buffer_u32, current_time);
 result = network_send_udp(socket, IPAddress, remotePort, buffer, buffer_tell(buffer));*/
 
-var q = keyboard_check(ord('Q'));
-var w = keyboard_check(ord('W'));
-var e = keyboard_check(ord('E'));
-var r = keyboard_check(ord('R'));
+q = keyboard_check(ord('Q'));
+w = keyboard_check(ord('W'));
+e = keyboard_check(ord('E'));
+r = keyboard_check(ord('R'));
 var leftClicked = mouse_check_button(mb_left);
 var escape = keyboard_check_pressed(vk_escape);
 
@@ -290,9 +290,20 @@ if(oldState != currentState)
 oldState = currentState;
 
 
+if(mouse_wheel_up())
+{
+    scrGetScrollUpArrow();
+}
+else if(mouse_wheel_down())
+{
+    scrGetScrollDownArrow();
+}
+
 if(currentState == mBattleFieldState)
 {
     scrSendMouse(mouse_x, mouse_y, leftClicked)
+    
+    
     
     if(q)
     {
@@ -690,7 +701,10 @@ if(room != rmMultiUpgrade)
         yscale = ds_list_find_value(playerSprites, index++)/1000;
         alpha = ds_list_find_value(playerSprites, index++)/1000;
     
-        draw_sprite_ext(spIndex,iIndex,xx,yy,xscale,yscale,angle,c_white,alpha);
+        if(!(spIndex == sprReticle &amp;&amp; iIndex == player))
+        {
+            draw_sprite_ext(spIndex,iIndex,xx,yy,xscale,yscale,angle,c_white,alpha);
+        }
     }
     
 }

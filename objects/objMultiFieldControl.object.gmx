@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>if(hosting)
 {
+    scrMultiplayerSave();
     if(day &gt; 90)
     {
         endlessGoldScaling = 2;
@@ -623,6 +624,16 @@ if(hosting)
         {
             instance_create(view_wview[0]/2,view_hview[0]/2,objClientPause);
         }
+    }
+    
+    
+    if(mouse_wheel_up())
+    {
+        scrGetScrollUpArrow();
+    }
+    else if(mouse_wheel_down())
+    {
+        scrGetScrollDownArrow();
     }
     
     if(q)

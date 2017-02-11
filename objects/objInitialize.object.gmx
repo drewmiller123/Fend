@@ -409,6 +409,8 @@ display_set_gui_size(room_width,room_height);
 
 instance_create(0,0,objFullScreenControl);
 
+instance_create(mouse_x,mouse_y,objReticle);
+
 room_goto(rmSplash);
 
 </string>

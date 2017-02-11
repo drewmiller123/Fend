@@ -106,7 +106,14 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>currentArrow = objArrow;
+            <string>if(multiplayerMode &amp;&amp; !hosting)
+{
+    scrSendKey(ord('Q'));
+}
+else
+{
+    currentArrow = objArrow;
+}
 </string>
           </argument>
         </arguments>
@@ -129,7 +136,14 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>currentArrow = objArrow;
+            <string>if(multiplayerMode &amp;&amp; !hosting)
+{
+    scrSendKey(ord('Q'));
+}
+else
+{
+    currentArrow = objArrow;
+}
 </string>
           </argument>
         </arguments>
