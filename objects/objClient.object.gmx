@@ -276,7 +276,7 @@ q = keyboard_check(ord('Q'));
 w = keyboard_check(ord('W'));
 e = keyboard_check(ord('E'));
 r = keyboard_check(ord('R'));
-var leftClicked = mouse_check_button(mb_left);
+var leftClicked = mouse_check_button(mb_left) || autoFire;
 var escape = keyboard_check_pressed(vk_escape);
 
 if(oldState != currentState)

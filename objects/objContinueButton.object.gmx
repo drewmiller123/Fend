@@ -32,6 +32,7 @@
         
         mReady[0] = true;
         mGold[0] = gold;
+        scrMultiplayerSave();
         scrSendLobbyStats();
         if(room == rmLose)
         {

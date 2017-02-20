@@ -274,7 +274,7 @@ if(!instance_exists(objPause))
             <kind>1</kind>
             <string>mx[0] = mouse_x;
 my[0] = mouse_y;
-mClicked[0] = mouse_check_button(mb_left);
+mClicked[0] = mouse_check_button(mb_left) || autoFire;
 currArrow[0] = currentArrow;
 mArrowDamage[0] = arrowDamage;
 mBowSpeed[0] = bowSpeed;
@@ -573,7 +573,7 @@ ds_list_destroy(socketList);
             <string>draw_set_halign(fa_left);
 //draw_text(5, 5, "Server Status: "+ string(server &gt;= 0));
 //draw_text(5, 30, "Total Clients: " + string(ds_list_size(socketList)));
-//draw_text(5, 55, "MultiplayerGold: " + string(multiplayerGold));
+//draw_text(5, 55, "mFireMult[1]: " + string(mFireMult[1]));
 //draw_text(5, 80, "needReady: " + string(needReady));
 //draw_text(5, 105, "MultiplayerGold: " + string(multiplayerGold));
 

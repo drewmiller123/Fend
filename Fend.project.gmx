@@ -573,6 +573,7 @@
         <object>objects\objSFXVolUp</object>
         <object>objects\objSFXVolDown</object>
         <object>objects\objFullScreenToggle</object>
+        <object>objects\objAutoFireToggle</object>
       </objects>
       <object>objects\objContinueButton</object>
       <object>objects\objTestButton</object>

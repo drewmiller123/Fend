@@ -106,10 +106,10 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_font(fntMediumMenuButton);
+            <string>draw_set_font(fntUpgrade);
 draw_set_halign(fa_center);
 
-scrDrawTextOutline("Multiplayer",x,y-sprite_width/32,c_white,c_black)
+scrDrawTextOutline("Online",x,y-sprite_width/32,c_white,c_black)
 
 </string>
           </argument>

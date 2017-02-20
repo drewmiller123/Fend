@@ -14,7 +14,7 @@ if(file_exists("Save.sav"))
     fireDamageMult = ini_read_real("save1","fireDamageMult",fireDamageMult);
     frostDamageMult = ini_read_real("save1","frostDamageMult",frostDamageMult);
     lightningDamageMult = ini_read_real("save1","lightningDamageMult",lightningDamageMult);
-    endlessUnlocked = ini_read_real("save1","endlessUnlocked",endlessUnlocked);
+    //endlessUnlocked = ini_read_real("save1","endlessUnlocked",endlessUnlocked);
     endlessMode = ini_read_real("save1","endlessMode",endlessMode);
     
     ini_close();

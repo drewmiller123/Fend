@@ -39,6 +39,12 @@ userMusicGain = 1;
 globalvar userSFXGain;
 userSFXGain = 1;
 
+globalvar autoFire;
+autoFire = false;
+
+globalvar endlessUnlocked;
+endlessUnlocked = false;
+
 scrLoadOptions();
 
 
@@ -77,7 +83,7 @@ globalvar maxArcDistance;
 globalvar HPScaling;
 globalvar goldScaling;
 
-globalvar endlessUnlocked;
+
 globalvar endlessMode;
 globalvar endlessHPScaling;
 globalvar endlessGoldScaling;
@@ -125,7 +131,7 @@ gameSteps = 0;
 HPScaling = 8;
 goldScaling = 2;
 
-endlessUnlocked = true;
+
 endlessMode = false;
 endlessHPScaling = 3;
 endlessGoldScaling = 1.5;

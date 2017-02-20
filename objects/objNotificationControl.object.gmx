@@ -28,6 +28,7 @@
             <string>if(room == rmWin)
 {
     endlessUnlocked = true;
+    scrSaveOptions();
     scrSaveGame();
 }
 if(room == rmFrostUpgrade)

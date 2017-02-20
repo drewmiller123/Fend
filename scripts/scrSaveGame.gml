@@ -18,7 +18,7 @@ ini_write_real("save1","lightningUpgrade",lightningUpgrade);
 ini_write_real("save1","fireDamageMult",fireDamageMult);
 ini_write_real("save1","frostDamageMult",frostDamageMult);
 ini_write_real("save1","lightningDamageMult",lightningDamageMult);
-ini_write_real("save1","endlessUnlocked",endlessUnlocked);
+//ini_write_real("save1","endlessUnlocked",endlessUnlocked);
 ini_write_real("save1","endlessMode",endlessMode);
 
 ini_close();
